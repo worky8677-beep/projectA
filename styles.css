@@ -2041,3 +2041,36 @@ img {
         height: 53px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/* ============================= */
+/* ==========팝업========= */
+/* ============================= */
+.popup{
+    position: fixed;
+    font-size: larger;
+    z-index: 9999;
+    background: white;
+    width: 30%;
+    left: 50%;
+    transform: translateX(-15%);
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 50px;
+    box-shadow: 0px 0px 60px 10px rgb(255, 231, 15);
+
+}
+.popup button {
+    width: 60px;
+    height: 30px;
+    background-color: orangered;
+    color: white;
+}

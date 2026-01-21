@@ -388,3 +388,8 @@ window.addEventListener('resize', () => {
         const priceSlider = new PriceSlider();
     }, 250);
 });
+/* ==============팝업============ */ 
+const btn = document.querySelector('.popup button');
+btn.onclick=()=>{
+document.querySelector('.popup').style.display="none";
+}
