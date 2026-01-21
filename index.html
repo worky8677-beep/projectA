@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제주항공 - 원태림</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header class="header">
+    <!-- 공지사항 배너 -->
+    <div class="news-banner">
+      <div class="news-container">
+        <img src="https://placehold.co/20x20/ff5000/ffffff?text=!" alt="알림" class="news-icon">
+        <div class="news-content">
+          <div class="news-item active">
+            <a href="#" class="news-link">1/21(수)~1/22(목) 제주공항 위험기상(강풍 및 강설)에 따른 지연/결항 가능성 안내</a>
+          </div>
+          <div class="news-item">
+            <a href="#" class="news-link">1/20(화) 삿포로, 하코다테공항 위험기상(강풍 및 강설)에 따른 지연/결항 운항 가능성 안내</a>
+          </div>
+        </div>
+        <div class="news-controls">
+          <button class="news-prev">
+            <img src="https://placehold.co/16x16/333333/ffffff?text=%3C" alt="이전">
+          </button>
+          <span class="news-indicator">
+            <strong>1</strong> / 2 </span>
+          <button class="news-next">
+            <img src="https://placehold.co/16x16/333333/ffffff?text=%3E" alt="다음">
+          </button>
+        </div>
+        <button class="news-close">
+          <img src="https://placehold.co/13x13/333333/ffffff?text=X" alt="닫기">
+        </button>
+      </div>
+    </div>
+    <!-- 상단 메뉴 -->
+    <div class="top-menu">
+      <div class="top-menu-container">
+        <nav class="top-menu-nav">
+          <a href="#">로그인</a>
+          <a href="#">회원가입</a>
+          <a href="#">진행중인 이벤트</a>
+          <a href="#">고객센터</a>
+          <a href="#">공지사항</a>
+          <button class="lang-btn">
+            <img src="https://placehold.co/20x20/333333/ffffff?text=KR" alt="언어"> 한국어 <img
+              src="https://placehold.co/12x12/333333/ffffff?text=v" alt="화살표">
+          </button>
+        </nav>
+      </div>
+    </div>
+    <!-- 메인 네비게이션 -->
+    <div class="main-nav">
+      <div class="main-nav-container">
+        <h1 class="logo">
+          <a href="#">
+            <img src="https://placehold.co/135x25/ff5000/ffffff?text=JEJU+AIR" alt="제주항공">
+          </a>
+        </h1>
+        <nav class="nav-menu">
+          <a href="#" class="nav-item">예약</a>
+          <a href="#" class="nav-item">여행 준비</a>
+          <a href="#" class="nav-item">여행 편의</a>
+          <a href="#" class="nav-item">J 멤버스</a>
+          <a href="#" class="nav-item">이벤트</a>
+          <a href="#" class="nav-item">J 캠페인</a>
+        </nav>
+        <a href="#" class="nav-icon">
+          <img src="https://placehold.co/26x26/333333/ffffff?text=Q" alt="검색">
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- 메인 컨텐츠 -->
+  <main class="main-content">
+    <!-- 메인 배너 -->
+    <section class="banner">
+      <img src="https://placehold.co/1920x600/ff5000/ffffff?text=Main+Banner" alt="메인 배너"
+        class="banner-img">
+      <div class="banner-text">
+        <p>4월 ~ 10월 출발편</p>
+        <p>국내선 항공권 스케줄 오픈</p>
+      </div>
+      <div class="banner-pagination">
+        <button class="banner-btn-prev">
+          <img src="https://placehold.co/40x40/ffffff/333333?text=%3C" alt="이전">
+        </button>
+        <span class="banner-indicator">
+          <strong>2</strong> / <span>4</span>
+        </span>
+        <button class="banner-btn-next">
+          <img src="https://placehold.co/40x40/ffffff/333333?text=%3E" alt="다음">
+        </button>
+        <button class="banner-btn-pause">
+          <img src="https://placehold.co/40x40/ffffff/333333?text=II" alt="정지">
+        </button>
+      </div>
+    </section>
+    <!-- 예약 섹션 -->
+    <section class="booking-section">
+      <div class="booking-container">
+        <!-- 탭 메뉴 -->
+        <div class="booking-tabs">
+          <button class="booking-tab active">항공권 예매</button>
+          <button class="booking-tab">예약 조회</button>
+          <button class="booking-tab">운항 조회</button>
+        </div>
+        <!-- 예약 폼 -->
+        <div class="booking-form">
+          <!-- 여행 타입 -->
+          <div class="trip-type">
+            <label class="trip-type-item active"> 왕복 </label>
+            <label class="trip-type-item"> 편도 </label>
+            <label class="trip-type-item"> 다구간 </label>
+          </div>
+          <!-- 경로 선택 -->
+          <div class="route-selection">
+            <div class="route-field">
+              <input type="text" placeholder="출발지" class="route-input">
+            </div>
+            <button class="route-swap">
+              <img src="https://placehold.co/36x36/ff5000/ffffff?text=%3C%3E" alt="경로 바꾸기">
+            </button>
+            <div class="route-field">
+              <input type="text" placeholder="도착지" class="route-input right">
+            </div>
+            <div class="date-field">
+              <img src="https://placehold.co/24x24/333333/ffffff?text=D" alt="날짜"
+                class="date-icon">
+              <span>2026.01.20(화) ~ 2026.01.27(화)</span>
+            </div>
+            <div class="passenger-field">
+              <img src="https://placehold.co/24x24/333333/ffffff?text=P" alt="승객"
+                class="passenger-icon">
+              <span>성인1</span>
+            </div>
+          </div>
+          <!-- 추가 옵션 -->
+          <div class="booking-options">
+            <div class="option-group">
+              <label class="option-label"> 결제 방법 <button class="info-btn">
+                  <img src="https://placehold.co/16x16/888888/ffffff?text=i" alt="정보">
+                </button>
+              </label>
+              <div class="option-items">
+                <label class="option-item">
+                  <input type="radio" name="payment" checked>
+                  <span>일반</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="payment">
+                  <span>포인트</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="payment">
+                  <span>기프티켓</span>
+                </label>
+              </div>
+            </div>
+            <div class="option-group">
+              <label class="option-label"> 할인 방법 <button class="info-btn">
+                  <img src="https://placehold.co/16x16/888888/ffffff?text=i" alt="정보">
+                </button>
+              </label>
+              <div class="discount-field">
+                <button class="discount-btn"> 운임 할인 쿠폰 </button>
+              </div>
+            </div>
+            <button class="search-btn disabled">항공권 검색</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <!-- 빠른 링크 -->
+      <section class="quick-link">
+        <div class="quick-grid">
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=1" alt="사전 수하물">
+            <span>사전 수하물</span>
+          </a>
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=2" alt="사전 좌석">
+            <span>사전 좌석</span>
+          </a>
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=3" alt="사전 기내식">
+            <span>사전 기내식</span>
+          </a>
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=4" alt="여행자 보험">
+            <span>여행자 보험</span>
+          </a>
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=5" alt="모바일 탑승권">
+            <span>모바일 탑승권</span>
+          </a>
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=6" alt="공항 정보">
+            <span>공항 정보</span>
+          </a>
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=7" alt="운송제한 물품">
+            <span>운송제한 물품</span>
+          </a>
+          <a href="#" class="quick-item">
+            <img src="https://placehold.co/60x60/ff5000/ffffff?text=8" alt="가족동반 여행">
+            <span>가족동반 여행</span>
+          </a>
+        </div>
+      </section>
+      <!-- 특별 혜택 -->
+      <section class="benefits-section">
+        <div class="section-header">
+          <h2>특별한 혜택을 확인해 보세요.</h2>
+          <a href="#" class="more-link">전체보기</a>
+        </div>
+        <div class="benefits-slider">
+          <div class="benefits-track">
+            <div class="benefit-card">
+              <img src="https://placehold.co/350x140/cccccc/666666?text=Aloft" alt="싱가포르 Aloft 호텔">
+              <div class="benefit-text">
+                <p>싱가포르 Aloft 호텔</p>
+                <p>최대 10% 할인</p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <img src="https://placehold.co/350x140/cccccc/666666?text=Fukuoka" alt="후쿠오카 호텔">
+              <div class="benefit-text">
+                <p>후쿠오카 호텔</p>
+                <p>크로스라이프 15% 할인</p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <img src="https://placehold.co/350x140/cccccc/666666?text=Sentosa" alt="싱가포르 센토사">
+              <div class="benefit-text">
+                <p>싱가포르 센토사</p>
+                <p>무료 혜택</p>
+              </div>
+            </div>
+          </div>
+          <button class="slider-btn slider-prev">
+            <img src="https://placehold.co/40x40/ffffff/666666?text=%3C" alt="이전">
+          </button>
+          <button class="slider-btn slider-next">
+            <img src="https://placehold.co/40x40/ffffff/666666?text=%3E" alt="다음">
+          </button>
+          <div class="slider-dots">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </section>
+      <!-- 최저가 여행 -->
+      <section class="price-section">
+        <div class="section-header">
+          <h2>최저가 여행을 떠나보세요.</h2>
+          <div class="filter-tabs">
+            <button class="filter-tab active">국내선</button>
+            <button class="filter-tab">국제선</button>
+          </div>
+        </div>
+        <div class="price-slider">
+          <div class="price-track">
+            <div class="price-card">
+              <img src="https://placehold.co/190x247/0088cc/ffffff?text=Jeju1" alt="김포-제주">
+              <h3>김포-제주</h3>
+              <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+              <p class="date">2026.01.20 ~ 2026.02.27</p>
+            </div>
+            <div class="price-card">
+              <img src="https://placehold.co/190x247/0088cc/ffffff?text=Jeju2" alt="인천-제주">
+              <h3>인천-제주</h3>
+              <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+              <p class="date">2026.01.20 ~ 2026.02.15</p>
+            </div>
+            <div class="price-card">
+              <img src="https://placehold.co/190x247/0088cc/ffffff?text=Jeju3" alt="대구-제주">
+              <h3>대구-제주</h3>
+              <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+              <p class="date">2026.01.20 ~ 2026.02.21</p>
+            </div>
+            <div class="price-card">
+              <img src="https://placehold.co/190x247/0088cc/ffffff?text=Jeju4" alt="청주-제주">
+              <h3>청주-제주</h3>
+              <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+              <p class="date">2026.02.15 ~ 2026.03.17</p>
+            </div>
+            <div class="price-card">
+              <img src="https://placehold.co/190x247/0088cc/ffffff?text=Jeju5" alt="광주-제주">
+              <h3>광주-제주</h3>
+              <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+              <p class="date">2026.01.20 ~ 2026.02.28</p>
+            </div>
+            <div class="price-card">
+              <img src="https://placehold.co/190x247/ff6600/ffffff?text=Cebu" alt="부산-세부">
+              <h3>부산-세부</h3>
+              <p class="price">78,500<span>원</span><span class="tilde">~</span></p>
+              <p class="date">2026.02.15 ~ 2026.03.15</p>
+            </div>
+            <div class="price-card">
+              <img src="https://placehold.co/190x247/009933/ffffff?text=Laos"
+                alt="서울(인천)-비엔티안(왓따이)">
+              <h3>서울(인천)-비엔티안(왓따이)</h3>
+              <p class="price">146,500<span>원</span><span class="tilde">~</span></p>
+              <p class="date">2026.02.15 ~ 2026.03.15</p>
+            </div>
+          </div>
+          <button class="slider-btn slider-prev">
+            <img src="https://placehold.co/40x40/ffffff/666666?text=%3C" alt="이전">
+          </button>
+          <button class="slider-btn slider-next">
+            <img src="https://placehold.co/40x40/ffffff/666666?text=%3E" alt="다음">
+          </button>
+        </div>
+      </section>
+      <!-- J 멤버스 혜택 -->
+      <section class="members-section">
+        <div class="section-header">
+          <h2>J 멤버스 혜택존을 경험해 보세요.</h2>
+          <a href="#" class="more-link">전체보기</a>
+        </div>
+        <div class="members-grid">
+          <a href="#" class="member-card red">
+            <img src="https://placehold.co/150x150/ff5000/ffffff?text=Car" alt="렌터카">
+            <span>렌터카</span>
+          </a>
+          <a href="#" class="member-card blue">
+            <img src="https://placehold.co/150x150/0066cc/ffffff?text=Hotel" alt="호텔/숙소">
+            <span>호텔/숙소</span>
+          </a>
+          <a href="#" class="member-card yellow">
+            <img src="https://placehold.co/150x150/ffcc00/333333?text=Insurance" alt="금융/여행자 보험">
+            <span>금융/여행자 보험</span>
+          </a>
+          <a href="#" class="member-card green">
+            <img src="https://placehold.co/150x150/009933/ffffff?text=Golf" alt="골프/투어">
+            <span>골프/투어</span>
+          </a>
+        </div>
+      </section>
+      <!-- 공지사항 -->
+      <section class="notice-section">
+        <div class="section-header">
+          <h2>공지사항을 확인해 주세요.</h2>
+          <a href="#" class="more-link">전체보기</a>
+        </div>
+        <ul class="notice-list">
+          <li class="notice-item">
+            <a href="#">1/21(수)~1/22(목) 제주공항 위험기상(강풍 및 강설)에 따른 지연/결항 가능성 안내</a>
+          </li>
+          <li class="notice-item">
+            <a href="#">해외 사이트를 통한 항공권 예약 시 유의사항 안내</a>
+          </li>
+          <li class="notice-item">
+            <a href="#">국내선 유류할증료 (2026년 2월)</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <div class="footer-col">
+          <h3>제주항공</h3>
+          <ul>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">투자정보</a></li>
+            <li><a href="#">채용안내</a></li>
+            <li><a href="#">ESG 경영</a></li>
+            <li><a href="#">소비자중심경영</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>약관 및 안내</h3>
+          <ul>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">운송약관 및 기타</a></li>
+            <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>기타 안내</h3>
+          <ul>
+            <li><a href="#">항공교통이용자 서비스 계획</a></li>
+            <li><a href="#">항공교통이용자 피해구제 계획</a></li>
+            <li><a href="#">항공위험물안내</a></li>
+            <li><a href="#">항공안전투자공시</a></li>
+            <li><a href="#">사전서약서</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>마케팅/제휴</h3>
+          <ul>
+            <li><a href="#">광고 및 제휴 문의</a></li>
+            <li><a href="#">이메일 무단 수집 거부</a></li>
+            <li><a href="#">에듀윙</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>기업/여행사 서비스</h3>
+          <ul>
+            <li><a href="#">Cargo</a></li>
+            <li><a href="#">기업 우대</a></li>
+            <li><a href="#">국내선 여행사 우대</a></li>
+            <li><a href="#">국제선 여행사 우대</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <a href="#"><strong>사이트맵</strong></a>
+          <div class="footer-badge">
+            <img src="https://placehold.co/120x40/ffffff/333333?text=CCM" alt="CCM">
+          </div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <div class="footer-company">
+          <h3>(주)제주항공</h3>
+          <p> 대표이사 : 김이배 | 사업자등록번호 : 616-81-50527 | 통신판매업신고 : 제주 2006-125호 | 호스팅 사업자 : AWS </p>
+          <p> 주소 : 제주특별자치도 제주시 신대로 64 (연동, 건설공제회관 3층) | 고객센터 : 1599-1500 (09:00 ~ 19:00) </p>
+          <p> 고객 문의 : | 제휴 문의 : </p>
+          <p class="copyright">Copyright ⓒ Jeju Air. All Rights Reserved.</p>
+        </div>
+        <div class="footer-app">
+          <div class="app-text">
+            <p>앱을 다운로드하고</p>
+            <p>앱전용 혜택을</p>
+            <p>받아보세요!</p>
+          </div>
+          <div class="app-qr">
+            <img src="https://placehold.co/80x80/ffffff/333333?text=QR" alt="QR 코드">
+          </div>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="#"><img src="https://placehold.co/24x24/3b5998/ffffff?text=F" alt="페이스북"></a>
+        <a href="#"><img src="https://placehold.co/24x24/e4405f/ffffff?text=I"
+            alt="인스타그램"></a>
+        <a href="#"><img src="https://placehold.co/24x24/ff0000/ffffff?text=Y" alt="유튜브"></a>
+        <a href="#"><img src="https://placehold.co/24x24/ffcd00/333333?text=K" alt="카카오톡"></a>
+      </div>
+    </div>
+  </footer>
+  <!-- 플로팅 버튼 -->
+  <div class="floating-buttons">
+    <div class="floating-items">
+      <button class="floating-btn blue">
+        <img src="https://placehold.co/72x72/0066cc/ffffff?text=1" alt="버튼1">
+      </button>
+      <button class="floating-btn orange">
+        <img src="https://placehold.co/72x72/ff5000/ffffff?text=2" alt="버튼2">
+      </button>
+    </div>
+    <button class="floating-toggle">
+      <span class="icon-plus">+</span>
+    </button>
+  </div>
+  <!-- 하단 네비게이션 (모바일 전용) -->
+  <nav class="bottom-nav">
+    <a href="#" class="bottom-nav-item active">
+      <div class="bottom-nav-icon">
+        <div class="badge"></div>
+        <img src="https://placehold.co/24x24/ff5000/ffffff?text=H" alt="홈">
+      </div>
+      <span class="bottom-nav-label">홈</span>
+    </a>
+    <a href="#" class="bottom-nav-item">
+      <div class="bottom-nav-icon">
+        <img src="https://placehold.co/24x24/333333/ffffff?text=B" alt="예매">
+      </div>
+      <span class="bottom-nav-label">예매</span>
+    </a>
+    <a href="#" class="bottom-nav-item center">
+      <div class="bottom-nav-icon">
+        <img src="https://placehold.co/24x24/ff5000/ffffff?text=M" alt="모바일 탑승권">
+      </div>
+      <span class="bottom-nav-label">모바일 탑승권</span>
+    </a>
+    <a href="#" class="bottom-nav-item">
+      <div class="bottom-nav-icon">
+        <img src="https://placehold.co/24x24/333333/ffffff?text=S" alt="스케줄 조회">
+      </div>
+      <span class="bottom-nav-label">스케줄 조회</span>
+    </a>
+    <a href="#" class="bottom-nav-item">
+      <div class="bottom-nav-icon">
+        <img src="https://placehold.co/24x24/333333/ffffff?text=P" alt="마이페이지">
+      </div>
+      <span class="bottom-nav-label">마이페이지</span>
+    </a>
+  </nav>
+  <script src="script.js"></script>
+</body>
+
+</html>
