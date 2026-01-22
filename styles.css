@@ -2055,22 +2055,34 @@ img {
 /* ==========팝업========= */
 /* ============================= */
 .popup{
+    display: flex;
+    top: 200px;
+ flex-direction: column; 
+  align-items: center; 
     position: fixed;
-    font-size: larger;
+    font-size: 30px;
     z-index: 9999;
-    background: white;
-    width: 30%;
+    background: rgb(255, 255, 255);
+    width: 50%;
     left: 50%;
     transform: translateX(-15%);
-    padding: 20px;
-    border: 2px solid black;
+    padding: 30px;
     border-radius: 50px;
     box-shadow: 0px 0px 60px 10px rgb(255, 231, 15);
 
 }
 .popup button {
+    margin: auto;
+    margin-top: 30px;
     width: 60px;
     height: 30px;
     background-color: orangered;
     color: white;
+}
+.popup-dim {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    background-color: #f9ffc388;
+    z-index: 9998;
 }

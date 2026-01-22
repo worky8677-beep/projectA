@@ -389,7 +389,7 @@ window.addEventListener('resize', () => {
     }, 250);
 });
 /* ==============팝업============ */ 
-const btn = document.querySelector('.popup button');
+const btn = document.querySelector('.popup-dim button');
 btn.onclick=()=>{
-document.querySelector('.popup').style.display="none";
+document.querySelector('.popup-dim').style.display="none";
 }
