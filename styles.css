@@ -140,6 +140,7 @@ img {
 .top-menu {
     border-bottom: 1px solid #f2f2f2;
     padding: 8px 0;
+    background-color: #002554;
 }
 
 .top-menu-container {
@@ -159,10 +160,15 @@ img {
 
 .top-menu-nav a {
     transition: color 0.2s;
+    color: #fff;
+}
+
+.top-menu-nav .lang-btn {
+    color: #fff;
 }
 
 .top-menu-nav a:hover {
-    color: #333;
+    color: #FFB81C;
 }
 
 .lang-btn {
@@ -208,19 +214,36 @@ img {
     display: flex;
     gap: 46px;
     flex: 1;
+    margin-left: 150px;
 }
 
 .nav-item {
     font-size: 16px;
     font-weight: 700;
     padding: 26px 10px;
-    color: #000;
+    color: #1a1a1a;
     transition: color 0.2s;
-}
+   overflow: hidden;
+   position: relative;
 
-.nav-item:hover {
-    color: #ff5000;
 }
+.nav-item:hover {
+    color: #002554;
+
+}
+.nav-item::before{
+    content: "";
+    position: absolute;
+    background-color: #FFB81C;
+    width: 0;
+    height: 8px;
+    top: 50px;
+ transition: width 1s;
+ z-index: 999;
+
+}
+.nav-item:hover:before
+{width: 100px;}
 
 .nav-icon {
     width: 30px;
@@ -247,7 +270,7 @@ img {
 
 .banner-text {
     position: absolute;
-    top: 172px;
+    top: 100px;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -260,7 +283,7 @@ img {
 
 .banner-pagination {
     position: absolute;
-    top: 262px;
+    top: 350px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -270,6 +293,7 @@ img {
     padding: 6px 11px;
     border-radius: 30px;
     height: 27px;
+
 }
 
 .banner-btn-prev, .banner-btn-next, .banner-btn-pause {
