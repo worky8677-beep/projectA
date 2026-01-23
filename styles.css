@@ -54,8 +54,8 @@ img {
 
 /* 공지사항 배너 */
 .news-banner {
-    background: #fff7e2;
-    padding: 8px 0;
+    background: #ffb81c;
+    padding: 3px 0;
     position: relative;
 }
 
@@ -106,7 +106,7 @@ img {
     align-items: center;
     gap: 12px;
     margin-left: auto;
-    background: #fff7e2;
+    background: #ffb81c;
     padding-left: 28px;
 }
 
@@ -371,8 +371,8 @@ img {
 }
 
 .trip-type-item.active {
-    color: #ff5000;
-    border-bottom: 2px solid #ff5000;
+    color: #002554;
+    border-bottom: 2px solid #FFB81C;
 }
 
 .route-selection {
@@ -406,6 +406,9 @@ img {
     width: 36px;
     height: 36px;
     margin-top: 7px;
+}
+.route-swap img{
+    width: 50px;
 }
 
 .date-field, .passenger-field {
@@ -497,13 +500,6 @@ img {
     transition: background 0.3s;
 }
 
-.search-btn:not(.disabled) {
-    background: #ff5000;
-}
-
-.search-btn:not(.disabled):hover {
-    background: #e64500;
-}
 
 /* 빠른 링크 */
 .quick-link {
@@ -1239,10 +1235,7 @@ img {
         border-bottom: 2px solid transparent;
     }
 
-    .booking-tab.active {
-        color: #ff5000;
-        border-bottom-color: #ff5000;
-    }
+
 
     .route-selection {
         display: flex;
@@ -2065,7 +2058,6 @@ img {
         height: 53px;
     }
 }
-
 
 
 

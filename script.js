@@ -309,7 +309,7 @@ class SearchButton {
 
         if (departure && arrival) {
             this.btn.classList.remove('disabled');
-            this.btn.style.background = '#ff5000';
+            this.btn.style.background = '#002554';
         } else {
             this.btn.classList.add('disabled');
             this.btn.style.background = '#aaa';
