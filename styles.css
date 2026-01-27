@@ -202,7 +202,7 @@ img {
 }
 
 .logo {
-    width: 102px;
+    width: 150px;
     margin-right: 66px;
 }
 
@@ -214,7 +214,7 @@ img {
     display: flex;
     gap: 46px;
     flex: 1;
-    margin-left: 150px;
+    margin-left: 100px;
 }
 
 .nav-item {
@@ -252,7 +252,7 @@ img {
 
 /* 메인 컨텐츠 */
 .main-content {
-    margin-top: 170px;
+      padding-top: 150px;
 }
 
 /* 메인 배너 */
@@ -349,7 +349,7 @@ img {
 
 .booking-form {
     background: #ffffff;
-    border-radius: 0 8px 8px 8px;
+    border-radius: 20px;
     padding: 20px;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12);
 }
@@ -484,7 +484,7 @@ img {
 }
 
 .discount-btn {
-    color: #ff5000;
+    color: #002554;
     font-size: 14px;
     font-weight: 400;
 }
@@ -505,8 +505,9 @@ img {
 .quick-link {
     background: #f8f8f8;
     padding: 40px 0 30px;
-    margin-top: 120px;
-}
+    margin-top: 70px;
+    border-radius: 50px;
+    box-shadow: #4c4c4c5e 2px 2px 10px;}
 
 .quick-grid {
     display: flex;
@@ -554,7 +555,6 @@ img {
     font-weight: 800;
     line-height: 45px;
 }
-
 .more-link {
     font-size: 16px;
     color: #333;
@@ -562,23 +562,29 @@ img {
 }
 
 .more-link:hover {
-    color: #ff5000;
+    color: #002554;
 }
 
 /* 특별 혜택 슬라이더 */
 .benefits-slider {
     position: relative;
-    /* overflow: hidden; */
+
+}
+.benefits-inner {
+    width: 964px;
+    overflow: hidden;
 }
 
 .benefits-track {
     display: flex;
-    gap: 10px;
+    gap: 16px;
     transition: transform 0.3s ease;
+    /* overflow: hidden; */
 }
 
+
 .benefit-card {
-    min-width: 320px;
+    min-width: 310px;
     height: 140px;
     border-radius: 10px;
     overflow: hidden;
@@ -589,13 +595,14 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter:brightness(0.6);
 }
 
 .benefit-text {
     position: absolute;
     top: 20px;
     left: 30px;
-    color: #000;
+    color: hsl(0, 0%, 100%);
     font-size: 20px;
     font-weight: 700;
     line-height: 30px;
@@ -640,7 +647,7 @@ img {
 .dot.active {
     width: 12px;
     border-radius: 3px;
-    background: #ff5000;
+    background: #002554;
     opacity: 1;
 }
 
@@ -660,35 +667,35 @@ img {
 }
 
 .filter-tab.active {
-    background: #ff5000;
+    background: #002554;
     color: #ffffff;
 }
 
 /* 최저가 여행 슬라이더 */
 .price-slider {
     position: relative;
+    padding: 5px;
+    width: 964px;
+}
+.price-list{
     overflow: hidden;
 }
-
 .price-track {
     display: flex;
-    gap: 16px;
+    gap: 8px;
     transition: transform 0.3s ease;
 }
 
 .price-card {
-    min-width: 240px;
+    min-width: 230px;
     background: #ffffff;
-    border-radius: 80px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+   align-items: center;
 }
 
 .price-card img {
-    width: 240px;
-    height: 312px;
+    width: 220px;
+    height: 290px;
     object-fit: cover;
     border-radius: 80px;
 }
@@ -794,7 +801,7 @@ img {
 }
 
 .notice-item a:hover {
-    color: #ff5000;
+    color: #002554;
 }
 
 /* 푸터 */
@@ -836,7 +843,7 @@ img {
 }
 
 .footer-col a:hover {
-    color: #ff5000;
+    color: #002554;
 }
 
 .footer-badge {
@@ -948,7 +955,7 @@ img {
 }
 
 .floating-btn.orange {
-    background: linear-gradient(to right, #ff5000 11%, #ffae43 87%, #ffbf5e 98%);
+    background: linear-gradient(to right, #002554 11%, #ffae43 87%, #ffbf5e 98%);
 }
 
 .floating-btn img {
@@ -1025,18 +1032,11 @@ img {
         flex-direction: column;
     }
 
-    .nav-menu {
-        gap: 20px;
-        font-size: 14px;
-    }
 
     .quick-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .price-track, .benefits-track {
-        flex-direction: column;
-    }
 
     .members-grid {
         grid-template-columns: 1fr;
@@ -1094,7 +1094,7 @@ img {
         right: 1px;
         width: 13px;
         height: 13px;
-        background: #ff5000;
+        background: #002554;
         border-radius: 6.5px;
     }
 
@@ -1118,7 +1118,7 @@ img {
     .bottom-nav-item.center .bottom-nav-icon {
         width: 46px;
         height: 46px;
-        background: #ff5000;
+        background: #002554;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -1133,7 +1133,7 @@ img {
         right: 0;
         height: 3px;
         background: #ffffff;
-        border: 1px solid #ff5000;
+        border: 1px solid #002554;
     }
 
     /* 헤더 수정 */
@@ -1150,9 +1150,6 @@ img {
         padding: 0 20px;
     }
 
-    .logo {
-        width: 102px;
-    }
 
     .menu-button {
         width: 26px;
@@ -1318,11 +1315,6 @@ img {
     }
 
     /* 퀵 링크 */
-    .quick-link {
-        background: #002554;
-        padding: 30px 16px;
-        margin: 0 -20px;
-    }
 
     .quick-scroll {
         overflow-x: auto;
@@ -1378,7 +1370,7 @@ img {
         top: 0;
         height: 100%;
         width: 63.17px;
-        background: #ff5000;
+        background: #002554;
         border-radius: 1.5px;
     }
 
@@ -1392,6 +1384,7 @@ img {
     /* 혜택 섹션 */
     .benefits-section {
         padding: 60px 0;
+        overflow: hidden;
     }
 
     .benefits-slider-wrapper {
@@ -1399,19 +1392,7 @@ img {
         overflow: hidden;
     }
 
-    .benefits-track {
-        display: flex;
-        gap: 16px;
-        padding: 0 4px;
-    }
-
-    .benefit-card {
-        min-width: 346px;
-        width: 346px;
-        height: 140px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
+}
 
     .benefit-view-all {
         position: absolute;
@@ -1443,16 +1424,10 @@ img {
 
     .price-note::before {
         content: '*';
-        color: #ff5000;
+        color: #002554;
         margin-right: 0;
     }
 
-    .price-card {
-        background: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.16);
-        padding: 0 14px 20px;
-    }
 
     .price-route-header {
         padding: 30px 0;
@@ -1485,10 +1460,10 @@ img {
     .price-search-button {
         width: 100%;
         height: 50px;
-        border: 1px solid #ff5000;
+        border: 1px solid #002554;
         border-radius: 2px;
         background: #ffffff;
-        color: #ff5000;
+        color: #002554;
         font-size: 16px;
         line-height: 19.2px;
         letter-spacing: -0.2px;
@@ -1560,12 +1535,12 @@ img {
 
     .price-disclaimer::before {
         content: '*';
-        color: #ff5000;
+        color: #002554;
         margin-right: 3px;
     }
 
     /* 편의 서비스 섹션 */
-    .members-section {
+    .news-section {
         padding: 60px 0;
     }
 
@@ -1587,7 +1562,7 @@ img {
     }
 
     .service-tab.active {
-        background: #ff5000;
+        background: #002554;
         color: #ffffff;
     }
 
@@ -1619,68 +1594,6 @@ img {
         line-height: 21px;
     }
 
-    /* J 멤버스 섹션 */
-    .jmembers-section {
-        padding: 60px 0;
-    }
-
-    .jmembers-grid {
-        display: flex;
-        overflow-x: auto;
-        gap: 20px;
-        padding: 0 2px;
-    }
-
-    .jmember-card {
-        min-width: 300px;
-        width: 300px;
-        height: 100px;
-        border-radius: 8px;
-        padding: 20px;
-        position: relative;
-    }
-
-    .jmember-card.orange {
-        background: #ffd5b4;
-    }
-
-    .jmember-card.violet {
-        background: #dacbff;
-    }
-
-    .jmember-card.red {
-        background: #fec7c7;
-    }
-
-    .jmember-card.blue {
-        background: #b8e3ff;
-    }
-
-    .jmember-icon {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .jmember-title {
-        font-size: 16px;
-        font-weight: 700;
-        color: #333;
-        line-height: 24px;
-        letter-spacing: -0.2px;
-        margin-bottom: 1px;
-    }
-
-    .jmember-tag {
-        font-size: 14px;
-        color: #333;
-        line-height: 21px;
-    }
-
     /* 인기 노선 섹션 */
     .discount-section {
         padding: 60px 0;
@@ -1702,7 +1615,7 @@ img {
 
     .discount-note::before {
         content: '*';
-        color: #ff5000;
+        color: #002554;
         margin-right: 0;
     }
 
