@@ -393,3 +393,13 @@ const btn = document.querySelector('.popup-dim button');
 btn.onclick=()=>{
 document.querySelector('.popup-dim').style.display="none";
 }
+/* ===========왕복, 다구간 탭=========== */
+const tabs=document.querySelectorAll('.trip-type> .trip-type-item')
+const panels=document.querySelectorAll('.route>.route-selection')
+
+for(let i=0;i<3;i++){
+  tabs[i].addEventListener("click", function(k){
+    k.preventDefault();
+    const a=tabs[i].getAttribute(qualifiedName)
+  })  
+}
