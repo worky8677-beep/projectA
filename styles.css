@@ -16,6 +16,8 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -56,6 +58,7 @@ img {
   right: 0;
   background: #ffffff;
   z-index: 1000;
+  width: 100%;
 }
 
 /* 공지사항 배너 */
@@ -196,35 +199,89 @@ img {
 .main-nav {
   background: #ffffff;
   height: 76px;
-  display: flex;
-  align-items: center;
+  padding: 20px;
+  margin: auto;
 }
 
 .main-nav-container {
   max-width: 1004px;
   margin: 0 auto;
-  padding: 0 20px;
   display: flex;
-  align-items: center;
+  padding: 0 20px;
   position: relative;
+  align-items: center;
 }
 
 .logo {
   width: 150px;
-  margin-right: 66px;
+  flex-shrink: 0;
 }
 
-.logo img {
-  width: 100%;
-}
 
-.nav-menu {
+.nav {
+  width: 70%;
   display: flex;
   gap: 46px;
   flex: 1;
-  margin-left: 100px;
+  margin-left: 66px;
+  position: relative;
 }
 
+/* =====================================복붙시작====== */
+
+
+.mega{
+width: 100vw;
+background-color: rgb(255, 255, 255);
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+top: 100%;
+height: 500px; /* 추후0으로 변경 */
+overflow: hidden;
+transition: height 0.3s ease;
+z-index: 1000;
+padding: 20px 0; /* 추후 삭제 */
+}
+.mega h3{
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: -1.5px;
+
+}
+.menu{
+  display: flex;
+  width: 100%;
+  max-width: 80vw; 
+  margin: auto;
+  text-align: center;
+}
+.dep1{
+  width:calc(100%/6);
+  position: relative;
+}
+
+/* 메가에 .on붙으면 메가 상태바꿔 (자바스크립트로 갈게) */
+
+/* 추후 주석처리 해제 */
+/* .dep1.on .mega{
+  height: auto;
+  padding: 20px 0;
+} */
+
+.row{
+  display: flex;
+  max-width: 80vw;
+  margin: auto;
+  gap: 10%;
+  text-align: center;
+  padding:20px 0 40px;
+  justify-content: space-between;
+  white-space: nowrap; /* 이건 글자 줄바꿈 안함 */
+  opacity: 1;
+}
+
+/* =====================================복붙끝====== */
 .nav-item {
   font-size: 16px;
   font-weight: 700;
@@ -248,7 +305,7 @@ img {
   z-index: 999;
 }
 .nav-item:hover::before {
-  width: 100px;
+  width: 100%;
 }
 
 .nav-icon {
@@ -398,14 +455,6 @@ position: absolute;
   flex-wrap: wrap;
 display: flex;
 }
-/* .route >div {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.5);
-  top: 0;
-  left: 0;
-  padding: 1em;
-  display: none;
-} */
 
 .route-field {
   flex: 1;
@@ -602,7 +651,7 @@ display: flex;
   position: relative;
 }
 .benefits-inner {
-  width: 964px;
+  width: 1004px;
   /* overflow: hidden; */
 }
 
@@ -706,7 +755,7 @@ display: flex;
 .price-slider {
   position: relative;
   padding: 5px;
-  width: 964px;
+  width: 1004;
 }
 .price-list {
   overflow: hidden;
@@ -2019,4 +2068,9 @@ display: flex;
   width: 100%;
   background-color: #f9ffc388;
   z-index: 9998;
+}
+@media (max-width: 768px) {
+  .mega {
+    display: none; 
+  }
 }

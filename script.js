@@ -388,18 +388,53 @@ window.addEventListener('resize', () => {
         const priceSlider = new PriceSlider();
     }, 250);
 });
-/* ==============팝업============ */ 
-const btn = document.querySelector('.popup-dim button');
-btn.onclick=()=>{
-document.querySelector('.popup-dim').style.display="none";
-}
 /* ===========왕복, 다구간 탭=========== */
 const tabs=document.querySelectorAll('.trip-type> .trip-type-item')
 const panels=document.querySelectorAll('.route>.route-selection')
 
 for(let i=0;i<3;i++){
-  tabs[i].addEventListener("click", function(k){
-    k.preventDefault();
-    const a=tabs[i].getAttribute(qualifiedName)
-  })  
+    tabs[i].addEventListener("click", function(k){
+        k.preventDefault();
+        const a=tabs[i].getAttribute(qualifiedName)
+    })  
+}
+
+/* ================================================ */
+/* ==nav========================================= */
+/* ================================================ */
+
+
+// const nav = document.querySelector(".nav");
+// console.log(nav);
+
+// const dep1 = nav.querySelectorAll(".dep1"); 
+
+// dep1.forEach(el => {
+//     const row=el.querySelector(".row")
+//     const mega=el.querySelector(".mega")
+    
+//     el.addEventListener("mouseenter", () => {
+//         el.classList.add("on");
+//         mega.style.height="auto" 
+//     });
+//     el.addEventListener("mouseleave", () => {
+//         el.classList.remove("on");
+//         mega.style.height=`0px` 
+//     });
+// });
+
+
+//스크롤이벤트
+window.addEventListener('scroll', ()=>{
+    console.log(window.scrollY);
+    if(window.scrollY>nav.offsetTop){
+        nav.classList.add("sticky")
+    }else{
+        nav.classList.remove("sticky")
+    }
+})
+/* ==============팝업============ */ 
+const btn = document.querySelector('.popup-dim button');
+btn.onclick=()=>{
+document.querySelector('.popup-dim').style.display="none";
 }
