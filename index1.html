@@ -15,8 +15,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>제주항공 - 원태림</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   </head>
@@ -89,7 +89,7 @@
                 <div class="mega">
                   <div class="row">
                     <div class="col">
-                      <h2>항공권</h2>
+                      <h3>항공권</h3>
                       <ul class="dep2">
                         <li><a href="#">항공권 예매</a></li>
                         <li><a href="#">가격으로 예매</a></li>
@@ -282,89 +282,15 @@
 
     <!-- 메인 컨텐츠 -->
     <main class="main-content">
-      <!-- 탭 -->
-      <div class="tab-wrapper">
-        <ul class="tab-menu trip-type">
-          <li><a href="#tabs-1" class="trip-type-item active">왕복
-
-          </a></li>
-          <li><a href="#tabs-2" class="trip-type-item">편도</a></li>
-          <li><a href="#tabs-3" class="trip-type-item">다구간</a></li>
-        </ul>
-        <div class="tab-content">
-          <div id="tabs-1" class="active">
-            <div class="booking-form">
-              <!-- 경로 선택  -->
-              <div class="route">
-                <div class="route-selection" id="round-trip">
-                  <div class="direction">
-                    <div class="route-field">
-                      <input type="text" placeholder="출발지" class="route-input" />
-                    </div>
-                    <button class="route-swap">
-                      <img src="images/icon/two-way.svg" alt="경로 바꾸기" />
-                    </button>
-                    <div class="route-field">
-                      <input type="text" placeholder="도착지" class="route-input right" />
-                    </div>
-                    <div class="date-field">
-                      <img src="images/icon/date.png" alt="날짜" class="date-icon" />
-                      <span><input type="date" /></span>
-                    </div>
-                    <div class="passenger-field">
-                      <img src="images/icon/people.png" alt="승객" class="passenger-icon" />
-                      <span><input type="number" min="1" max="10" step="1" placeholder="인원 수"></span>
-                    </div>
-                  </div>
-                  <div class="booking-options">
-                    <div class="option-group">
-                      <label class="option-label">
-                        결제 방법
-                        <button class="info-btn">
-                          <img src="https://placehold.co/16x16/888888/ffffff?text=i" alt="정보" />
-                        </button>
-                      </label>
-                      <div class="option-items">
-                        <label class="option-item">
-                          <input type="radio" name="payment" checked />
-                          <span>일반</span>
-                        </label>
-                        <label class="option-item">
-                          <input type="radio" name="payment" />
-                          <span>포인트</span>
-                        </label>
-                        <label class="option-item">
-                          <input type="radio" name="payment" />
-                          <span>기프티켓</span>
-                        </label>
-                      </div>
-                    </div>
-                    <button class="search-btn disabled">항공권 검색</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div id="tabs-2">
-
-
-          </div>
-          <div id="tabs-3">
-
-
-          </div>
-        </div>
-      </div>
       <!-- 메인 배너 -->
       <section class="banner">
+      
+
         <div class="swiper">
           <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide">
-              <img src="images/sakura.jpeg" alt="메인 배너" class="banner-img" />
-            </div>
+              <img src="images/sakura.jpeg" alt="메인 배너" class="banner-img" /></div>
             <div class="swiper-slide"><img src="images/city/ibaraki.jpeg" alt="메인 배너" class="banner-img" /></div>
             <div class="swiper-slide"><img src="images/city/Mongolia.jpeg" alt="메인 배너" class="banner-img" /></div>
           </div>
@@ -384,7 +310,7 @@
           <button class="banner-btn-next">
             <img src="images/icon/right.png" alt="다음" />
           </button>
-          <button class="banner-btn-pause">p-type
+          <button class="banner-btn-pause">
             <img src="images/icon/pause.png" alt="정지" />
           </button>
         </div>
@@ -403,7 +329,7 @@
             </div>
             <!-- 경로 선택  -->
             <div class="route">
-              <div class="route-selection" id="round-trip1">
+              <div class="route-selection" id="round-trip">
                 <div class="route-field">
                   <input type="text" placeholder="출발지" class="route-input" />
                 </div>
@@ -447,7 +373,7 @@
                   <button class="search-btn disabled">항공권 검색</button>
                 </div>
               </div>
-              <div class="route-selection" id="one-way1">
+              <div class="route-selection" id="one-way">
                 <div class="route-field">
                   <input type="text" placeholder="출발지" class="route-input" />
                 </div>

@@ -1,440 +1,490 @@
 // 뉴스 배너 슬라이더
-class NewsBanner {
-    constructor() {
-        this.container = document.querySelector('.news-content');
-        this.items = document.querySelectorAll('.news-item');
-        this.prevBtn = document.querySelector('.news-prev');
-        this.nextBtn = document.querySelector('.news-next');
-        this.closeBtn = document.querySelector('.news-close');
-        this.indicator = document.querySelector('.news-indicator strong');
-        this.currentIndex = 0;
+const NewsBanner = {
+  container: null,
+  items: null,
+  prevBtn: null,
+  nextBtn: null,
+  closeBtn: null,
+  indicator: null,
+  currentIndex: 0,
 
-        this.init();
+  init: function () {
+    this.container = document.querySelector(".news-content");
+    this.items = document.querySelectorAll(".news-item");
+    this.prevBtn = document.querySelector(".news-prev");
+    this.nextBtn = document.querySelector(".news-next");
+    this.closeBtn = document.querySelector(".news-close");
+    this.indicator = document.querySelector(".news-indicator strong");
+
+    if (!this.container) return;
+
+    this.prevBtn?.addEventListener("click", () => this.prev());
+    this.nextBtn?.addEventListener("click", () => this.next());
+    this.closeBtn?.addEventListener("click", () => this.close());
+  },
+
+  prev: function () {
+    this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+    this.update();
+  },
+
+  next: function () {
+    this.currentIndex = (this.currentIndex + 1) % this.items.length;
+    this.update();
+  },
+
+  update: function () {
+    this.items.forEach((item, index) => {
+      item.classList.toggle("active", index === this.currentIndex);
+    });
+    if (this.indicator) {
+      this.indicator.textContent = this.currentIndex + 1;
     }
+  },
 
-    init() {
-        if (!this.container) return;
-
-        this.prevBtn?.addEventListener('click', () => this.prev());
-        this.nextBtn?.addEventListener('click', () => this.next());
-        this.closeBtn?.addEventListener('click', () => this.close());
+  close: function () {
+    const banner = document.querySelector(".news-banner");
+    if (banner) {
+      banner.style.display = "none";
     }
-
-    prev() {
-        this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-        this.update();
-    }
-
-    next() {
-        this.currentIndex = (this.currentIndex + 1) % this.items.length;
-        this.update();
-    }
-
-    update() {
-        this.items.forEach((item, index) => {
-            item.classList.toggle('active', index === this.currentIndex);
-        });
-        if (this.indicator) {
-            this.indicator.textContent = this.currentIndex + 1;
-        }
-    }
-
-    close() {
-        const banner = document.querySelector('.news-banner');
-        if (banner) {
-            banner.style.display = 'none';
-        }
-    }
-}
+  },
+};
 
 // 메인 배너 슬라이더
-class MainBanner {
-    constructor() {
-        this.currentIndex = 1; // 2/4로 시작
-        this.totalSlides = 4;
-        this.indicator = document.querySelector('.banner-indicator strong');
-        this.prevBtn = document.querySelector('.banner-btn-prev');
-        this.nextBtn = document.querySelector('.banner-btn-next');
-        this.pauseBtn = document.querySelector('.banner-btn-pause');
-        this.isPlaying = true;
-        this.interval = null;
+const MainBanner = {
+  currentIndex: 1, // 2/4로 시작
+  totalSlides: 4,
+  indicator: null,
+  prevBtn: null,
+  nextBtn: null,
+  pauseBtn: null,
+  isPlaying: true,
+  interval: null,
 
-        this.init();
+  init: function () {
+    this.indicator = document.querySelector(".banner-indicator strong");
+    this.prevBtn = document.querySelector(".banner-btn-prev");
+    this.nextBtn = document.querySelector(".banner-btn-next");
+    this.pauseBtn = document.querySelector(".banner-btn-pause");
+
+    if (!this.indicator) return;
+
+    this.prevBtn?.addEventListener("click", () => this.prev());
+    this.nextBtn?.addEventListener("click", () => this.next());
+    this.pauseBtn?.addEventListener("click", () => this.togglePlay());
+
+    this.startAutoPlay();
+  },
+
+  prev: function () {
+    this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+    this.update();
+  },
+
+  next: function () {
+    this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+    this.update();
+  },
+
+  update: function () {
+    if (this.indicator) {
+      this.indicator.textContent = this.currentIndex + 1;
     }
+  },
 
-    init() {
-        if (!this.indicator) return;
-
-        this.prevBtn?.addEventListener('click', () => this.prev());
-        this.nextBtn?.addEventListener('click', () => this.next());
-        this.pauseBtn?.addEventListener('click', () => this.togglePlay());
-
-        this.startAutoPlay();
+  togglePlay: function () {
+    this.isPlaying = !this.isPlaying;
+    if (this.isPlaying) {
+      this.startAutoPlay();
+    } else {
+      this.stopAutoPlay();
     }
+  },
 
-    prev() {
-        this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
-        this.update();
-    }
+  startAutoPlay: function () {
+    this.interval = setInterval(() => this.next(), 5000);
+  },
 
-    next() {
-        this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
-        this.update();
+  stopAutoPlay: function () {
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
     }
-
-    update() {
-        if (this.indicator) {
-            this.indicator.textContent = this.currentIndex + 1;
-        }
-    }
-
-    togglePlay() {
-        this.isPlaying = !this.isPlaying;
-        if (this.isPlaying) {
-            this.startAutoPlay();
-        } else {
-            this.stopAutoPlay();
-        }
-    }
-
-    startAutoPlay() {
-        this.interval = setInterval(() => this.next(), 5000);
-    }
-
-    stopAutoPlay() {
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
-        }
-    }
-}
+  },
+};
 
 // 예약 탭
-class BookingTabs {
-    constructor() {
-        this.tabs = document.querySelectorAll('.booking-tab');
-        this.init();
-    }
+const BookingTabs = {
+  tabs: null,
 
-    init() {
-        this.tabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => this.switchTab(index));
-        });
-    }
+  init: function () {
+    this.tabs = document.querySelectorAll(".booking-tab");
+    this.tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => this.switchTab(index));
+    });
+  },
 
-    switchTab(index) {
-        this.tabs.forEach((tab, i) => {
-            tab.classList.toggle('active', i === index);
-        });
-    }
-}
+  switchTab: function (index) {
+    this.tabs.forEach((tab, i) => {
+      tab.classList.toggle("active", i === index);
+    });
+  },
+};
 
 // 여행 타입 선택
-class TripType {
-    constructor() {
-        this.types = document.querySelectorAll('.trip-type-item');
-        this.init();
-    }
+const TripType = {
+  types: null,
 
-    init() {
-        this.types.forEach((type, index) => {
-            type.addEventListener('click', () => this.select(index));
-        });
-    }
+  init: function () {
+    this.types = document.querySelectorAll(".trip-type-item");
+    this.types.forEach((type, index) => {
+      type.addEventListener("click", () => this.select(index));
+    });
+  },
 
-    select(index) {
-        this.types.forEach((type, i) => {
-            type.classList.toggle('active', i === index);
-        });
-    }
-}
+  select: function (index) {
+    this.types.forEach((type, i) => {
+      type.classList.toggle("active", i === index);
+    });
+  },
+};
 
 // 혜택 슬라이더
-class BenefitsSlider {
-    constructor() {
-        this.track = document.querySelector('.benefits-track');
-        this.prevBtn = document.querySelector('.benefits-slider .slider-prev');
-        this.nextBtn = document.querySelector('.benefits-slider .slider-next');
-        this.dots = document.querySelectorAll('.benefits-slider .dot');
-        this.currentIndex = 0;
-        this.cardWidth = 330; // 320px + 10px gap
+const BenefitsSlider = {
+  track: null,
+  prevBtn: null,
+  nextBtn: null,
+  dots: null,
+  currentIndex: 0,
+  cardWidth: 330, // 320px + 10px gap
 
-        this.init();
+  init: function () {
+    this.track = document.querySelector(".benefits-track");
+    this.prevBtn = document.querySelector(".benefits-slider .slider-prev");
+    this.nextBtn = document.querySelector(".benefits-slider .slider-next");
+    this.dots = document.querySelectorAll(".benefits-slider .dot");
+
+    if (!this.track) return;
+
+    this.prevBtn?.addEventListener("click", () => this.prev());
+    this.nextBtn?.addEventListener("click", () => this.next());
+  },
+
+  prev: function () {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.update();
     }
+  },
 
-    init() {
-        if (!this.track) return;
-
-        this.prevBtn?.addEventListener('click', () => this.prev());
-        this.nextBtn?.addEventListener('click', () => this.next());
+  next: function () {
+    const maxIndex = this.dots.length - 1;
+    if (this.currentIndex < maxIndex) {
+      this.currentIndex++;
+      this.update();
     }
+  },
 
-    prev() {
-        if (this.currentIndex > 0) {
-            this.currentIndex--;
-            this.update();
-        }
-    }
+  update: function () {
+    const offset = -this.currentIndex * this.cardWidth;
+    this.track.style.transform = `translateX(${offset}px)`;
 
-    next() {
-        const maxIndex = this.dots.length - 1;
-        if (this.currentIndex < maxIndex) {
-            this.currentIndex++;
-            this.update();
-        }
-    }
-
-    update() {
-        const offset = -this.currentIndex * this.cardWidth;
-        this.track.style.transform = `translateX(${offset}px)`;
-
-        this.dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
-        });
-    }
-}
+    this.dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === this.currentIndex);
+    });
+  },
+};
 
 // 가격 슬라이더
-class PriceSlider {
-    constructor() {
-        this.track = document.querySelector('.price-track');
-        this.prevBtn = document.querySelector('.price-slider .slider-prev');
-        this.nextBtn = document.querySelector('.price-slider .slider-next');
-        this.tabs = document.querySelectorAll('.filter-tab');
-        this.currentIndex = 0;
-        this.cardWidth = 256; // 240px + 16px gap
+const PriceSlider = {
+  track: null,
+  prevBtn: null,
+  nextBtn: null,
+  tabs: null,
+  currentIndex: 0,
+  cardWidth: 256, // 240px + 16px gap
 
-        this.init();
+  init: function () {
+    this.track = document.querySelector(".price-track");
+    this.prevBtn = document.querySelector(".price-slider .slider-prev");
+    this.nextBtn = document.querySelector(".price-slider .slider-next");
+    this.tabs = document.querySelectorAll(".filter-tab");
+
+    if (!this.track) return;
+
+    this.prevBtn?.addEventListener("click", () => this.prev());
+    this.nextBtn?.addEventListener("click", () => this.next());
+
+    this.tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => this.switchTab(index));
+    });
+  },
+
+  prev: function () {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.update();
     }
+  },
 
-    init() {
-        if (!this.track) return;
-
-        this.prevBtn?.addEventListener('click', () => this.prev());
-        this.nextBtn?.addEventListener('click', () => this.next());
-
-        this.tabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => this.switchTab(index));
-        });
+  next: function () {
+    const cards = this.track.querySelectorAll(".price-card");
+    const maxIndex = Math.max(0, cards.length - 4); // 한 번에 4개 표시
+    if (this.currentIndex < maxIndex) {
+      this.currentIndex++;
+      this.update();
     }
+  },
 
-    prev() {
-        if (this.currentIndex > 0) {
-            this.currentIndex--;
-            this.update();
-        }
-    }
+  update: function () {
+    const offset = -this.currentIndex * this.cardWidth;
+    this.track.style.transform = `translateX(${offset}px)`;
+  },
 
-    next() {
-        const cards = this.track.querySelectorAll('.price-card');
-        const maxIndex = Math.max(0, cards.length - 4); // 한 번에 4개 표시
-        if (this.currentIndex < maxIndex) {
-            this.currentIndex++;
-            this.update();
-        }
-    }
-
-    update() {
-        const offset = -this.currentIndex * this.cardWidth;
-        this.track.style.transform = `translateX(${offset}px)`;
-    }
-
-    switchTab(index) {
-        this.tabs.forEach((tab, i) => {
-            tab.classList.toggle('active', i === index);
-        });
-        this.currentIndex = 0;
-        this.update();
-    }
-}
+  switchTab: function (index) {
+    this.tabs.forEach((tab, i) => {
+      tab.classList.toggle("active", i === index);
+    });
+    this.currentIndex = 0;
+    this.update();
+  },
+};
 
 // 플로팅 버튼
-class FloatingButtons {
-    constructor() {
-        this.toggle = document.querySelector('.floating-toggle');
-        this.items = document.querySelector('.floating-items');
-        this.isOpen = false;
+const FloatingButtons = {
+  toggle: null,
+  items: null,
+  isOpen: false,
 
-        this.init();
+  init: function () {
+    this.toggle = document.querySelector(".floating-toggle");
+    this.items = document.querySelector(".floating-items");
+
+    if (!this.toggle) return;
+
+    this.toggle.addEventListener("click", () => this.toggleMenu());
+    this.items.style.display = "none";
+  },
+
+  toggleMenu: function () {
+    this.isOpen = !this.isOpen;
+    this.toggle.classList.toggle("active", this.isOpen);
+
+    if (this.isOpen) {
+      this.items.style.display = "flex";
+      setTimeout(() => {
+        this.items.style.opacity = "1";
+        this.items.style.transform = "translateY(0)";
+      }, 10);
+    } else {
+      this.items.style.opacity = "0";
+      this.items.style.transform = "translateY(20px)";
+      setTimeout(() => {
+        this.items.style.display = "none";
+      }, 300);
     }
-
-    init() {
-        if (!this.toggle) return;
-
-        this.toggle.addEventListener('click', () => this.toggleMenu());
-        this.items.style.display = 'none';
-    }
-
-    toggleMenu() {
-        this.isOpen = !this.isOpen;
-        this.toggle.classList.toggle('active', this.isOpen);
-
-        if (this.isOpen) {
-            this.items.style.display = 'flex';
-            setTimeout(() => {
-                this.items.style.opacity = '1';
-                this.items.style.transform = 'translateY(0)';
-            }, 10);
-        } else {
-            this.items.style.opacity = '0';
-            this.items.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                this.items.style.display = 'none';
-            }, 300);
-        }
-    }
-}
+  },
+};
 
 // 검색 버튼 활성화
-class SearchButton {
-    constructor() {
-        this.btn = document.querySelector('.search-btn');
-        this.departureInput = document.querySelector('.route-input');
-        this.arrivalInput = document.querySelector('.route-input.right');
+const SearchButton = {
+  btn: null,
+  departureInput: null,
+  arrivalInput: null,
 
-        this.init();
+  init: function () {
+    this.btn = document.querySelector(".search-btn");
+    this.departureInput = document.querySelector(".route-input");
+    this.arrivalInput = document.querySelector(".route-input.right");
+
+    if (!this.btn) return;
+
+    [this.departureInput, this.arrivalInput].forEach((input) => {
+      input?.addEventListener("input", () => this.checkInputs());
+    });
+  },
+
+  checkInputs: function () {
+    const departure = this.departureInput?.value.trim();
+    const arrival = this.arrivalInput?.value.trim();
+
+    if (departure && arrival) {
+      this.btn.classList.remove("disabled");
+      this.btn.style.background = "#002554";
+    } else {
+      this.btn.classList.add("disabled");
+      this.btn.style.background = "#aaa";
     }
-
-    init() {
-        if (!this.btn) return;
-
-        [this.departureInput, this.arrivalInput].forEach(input => {
-            input?.addEventListener('input', () => this.checkInputs());
-        });
-    }
-
-    checkInputs() {
-        const departure = this.departureInput?.value.trim();
-        const arrival = this.arrivalInput?.value.trim();
-
-        if (departure && arrival) {
-            this.btn.classList.remove('disabled');
-            this.btn.style.background = '#002554';
-        } else {
-            this.btn.classList.add('disabled');
-            this.btn.style.background = '#aaa';
-        }
-    }
-}
+  },
+};
 
 // 스크롤 헤더
-class ScrollHeader {
-    constructor() {
-        this.header = document.querySelector('.header');
-        this.lastScroll = 0;
+const ScrollHeader = {
+  header: null,
+  lastScroll: 0,
 
-        this.init();
-    }
+  init: function () {
+    this.header = document.querySelector(".header");
 
-    init() {
-        if (!this.header) return;
+    if (!this.header) return;
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
 
-            if (currentScroll > 100) {
-                this.header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                this.header.style.boxShadow = 'none';
-            }
+      if (currentScroll > 100) {
+        this.header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+      } else {
+        this.header.style.boxShadow = "none";
+      }
 
-            this.lastScroll = currentScroll;
-        });
-    }
-}
+      this.lastScroll = currentScroll;
+    });
+  },
+};
 
 // 부드러운 스크롤
 function smoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href !== "#") {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
     });
+  });
 }
 
 // 초기화
-document.addEventListener('DOMContentLoaded', () => {
-    new NewsBanner();
-    new MainBanner();
-    new BookingTabs();
-    new TripType();
-    new BenefitsSlider();
-    new PriceSlider();
-    new FloatingButtons();
-    new SearchButton();
-    new ScrollHeader();
-    smoothScroll();
+document.addEventListener("DOMContentLoaded", () => {
+  NewsBanner.init();
+  MainBanner.init();
+  BookingTabs.init();
+  TripType.init();
+  BenefitsSlider.init();
+  PriceSlider.init();
+  FloatingButtons.init();
+  SearchButton.init();
+  ScrollHeader.init();
+  smoothScroll();
 
-    console.log('제주항공 웹사이트가 로드되었습니다.');
+  console.log("제주항공 웹사이트가 로드되었습니다.");
 });
 
 // 윈도우 리사이즈 처리
 let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        // 슬라이더 재조정
-        const benefitsSlider = new BenefitsSlider();
-        const priceSlider = new PriceSlider();
-    }, 250);
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    // 슬라이더 재조정
+    BenefitsSlider.init();
+    PriceSlider.init();
+  }, 250);
 });
 /* ===========왕복, 다구간 탭=========== */
-const tabs=document.querySelectorAll('.trip-type> .trip-type-item')
-const panels=document.querySelectorAll('.route>.route-selection')
+const tabs = document.querySelectorAll(".trip-type> .trip-type-item");
+const panels = document.querySelectorAll(".route>.route-selection");
 
-for(let i=0;i<3;i++){
-    tabs[i].addEventListener("click", function(k){
-        k.preventDefault();
-        const a=tabs[i].getAttribute(qualifiedName)
-    })  
+for (let i = 0; i < 3; i++) {
+  tabs[i].addEventListener("click", function (k) {
+    k.preventDefault();
+    const a = tabs[i].getAttribute(qualifiedName);
+  });
 }
 
 /* ================================================ */
 /* ==nav========================================= */
 /* ================================================ */
 
+const nav = document.querySelector(".nav");
+console.log(nav);
 
-// const nav = document.querySelector(".nav");
-// console.log(nav);
+const dep1 = nav.querySelectorAll(".dep1");
 
-// const dep1 = nav.querySelectorAll(".dep1"); 
+dep1.forEach((el) => {
+  const row = el.querySelector(".row");
+  const mega = el.querySelector(".mega");
 
-// dep1.forEach(el => {
-//     const row=el.querySelector(".row")
-//     const mega=el.querySelector(".mega")
-    
-//     el.addEventListener("mouseenter", () => {
-//         el.classList.add("on");
-//         mega.style.height="auto" 
-//     });
-//     el.addEventListener("mouseleave", () => {
-//         el.classList.remove("on");
-//         mega.style.height=`0px` 
-//     });
-// });
-
+  el.addEventListener(
+    "mouseenter",
+    function () {
+      el.classList.add("on");
+      mega.style.height = "auto";
+    },
+    false,
+  );
+  el.addEventListener(
+    "mouseleave",
+    function () {
+      el.classList.remove("on");
+      mega.style.height = `0px`;
+    },
+    false,
+  );
+});
 
 //스크롤이벤트
-window.addEventListener('scroll', ()=>{
-    console.log(window.scrollY);
-    if(window.scrollY>nav.offsetTop){
-        nav.classList.add("sticky")
-    }else{
-        nav.classList.remove("sticky")
+window.addEventListener("scroll", () => {
+  console.log(window.scrollY);
+  if (window.scrollY > nav.offsetTop) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+});
+/* ==============팝업============ */
+const btn = document.querySelector(".popup-dim button");
+btn.onclick = () => {
+  document.querySelector(".popup-dim").style.display = "none";
+};
+document.querySelector(".popup-dim").style.display = "none";
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  preventClicks: true,
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+
+/* ==============탭============ */
+
+const main_tabs = document.querySelectorAll(".tab-menu a");
+const main_panels = document.querySelectorAll(".tab-content>div");
+
+// 반복문
+for (let i = 0; i < 3; i++) {
+  main_tabs[i].addEventListener("click", function (e) {
+    e.preventDefault();
+    const currentScroll = window.scrollY;
+    const a = main_tabs[i].getAttribute("href");
+    for (let k = 0; k < 3; k++) {
+      main_tabs[k].classList.remove("active");
+      main_panels[k].classList.remove("active");
     }
-})
-/* ==============팝업============ */ 
-const btn = document.querySelector('.popup-dim button');
-btn.onclick=()=>{
-document.querySelector('.popup-dim').style.display="none";
+    main_tabs[i].classList.add("active");
+    document.querySelector(a).classList.add("active");
+
+    window.scrollTo(0, currentScroll);
+    return false
+  });
 }
