@@ -60,6 +60,10 @@ img {
   z-index: 1000;
   width: 100%;
 }
+main.main-content {
+  position: absolute;
+  top: 0;
+}
 
 /* 공지사항 배너 */
 .news-banner {
@@ -223,7 +227,6 @@ img {
   gap: 46px;
   flex: 1;
   margin-left: 66px;
-  position: relative;
 }
 
 /* =====================================복붙시작====== */
@@ -232,9 +235,8 @@ img {
   width: 100vw;
   background-color: rgb(255, 255, 255);
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 100%;
+  left: 0%;
+  top: 76px;
   height: 500px; /* 추후0으로 변경 */
   overflow: hidden;
   transition: height 0.3s ease;
@@ -255,7 +257,6 @@ img {
 }
 .dep1 {
   width: calc(100% / 6);
-  position: relative;
 }
 
 /* 메가에 .on붙으면 메가 상태바꿔 (자바스크립트로 갈게) */
@@ -334,21 +335,21 @@ img {
   padding: 1px 20px;
 }
 
-
 .trip-type-item {
   font-size: 12px;
   font-weight: 700;
   padding: 2px 0;
   cursor: pointer;
   color: #888;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+  transition:
+    color 0.3s ease,
+    border-bottom 0.3s ease;
 }
 
 .trip-type-item.active {
   color: #002554;
   border-bottom: 2px solid #ffb81c;
 }
-
 
 .tab-content {
   position: relative;
@@ -440,7 +441,6 @@ img {
   margin: 0 auto;
 }
 
-
 .booking-tab.active {
   background: #ffffff;
   color: #333;
@@ -454,8 +454,6 @@ img {
   position: relative;
   height: 250px;
 }
-
-
 
 .route {
   position: relative;
@@ -471,7 +469,7 @@ img {
   display: flex;
 }
 
-.route-selection > .direction{
+.route-selection > .direction {
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -504,7 +502,6 @@ img {
 .route-swap img {
   width: 50px;
 }
-
 
 .date-field,
 .passenger-field {
@@ -1252,7 +1249,7 @@ img {
   }
 
   /* 메인 컨텐츠 */
-  .main-content {
+  main.main-content {
     padding-bottom: 80px;
   }
 
