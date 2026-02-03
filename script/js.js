@@ -40,13 +40,15 @@ dep1.forEach((el) => {
   el.addEventListener(
     "mouseenter",
     function () {
-      //el.classList.add("on");
-      mega.style.height = "auto";
+    const h =row.offsetHeight;
+      el.classList.add("on");
+      // mega.style.height = "auto";
+      mega.style.height = `${h}px`;
     },
     false,
   );
   el.addEventListener("mouseleave", function () {
-    //el.classList.remove("on");
+    el.classList.remove("on");
     mega.style.height = `0px`;
   });
 });

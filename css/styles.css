@@ -60,10 +60,6 @@ img {
   z-index: 1000;
   width: 100%;
 }
-main.main-content {
-  position: absolute;
-  top: 0;
-}
 
 /* 공지사항 배너 */
 .news-banner {
@@ -200,6 +196,10 @@ main.main-content {
 }
 
 /* 메인 네비게이션 */
+main.main-content{
+  position: relative;
+  top:-100px;
+}
 .main-nav {
   background: #ffffff;
   height: 76px;
@@ -227,6 +227,7 @@ main.main-content {
   gap: 46px;
   flex: 1;
   margin-left: 66px;
+  transition: all 0.2s;
 }
 
 /* =====================================복붙시작====== */
@@ -237,11 +238,10 @@ main.main-content {
   position: absolute;
   left: 0%;
   top: 76px;
-  height: 500px; /* 추후0으로 변경 */
+  height: 0; /* 추후0으로 변경 */
   overflow: hidden;
   transition: height 0.3s ease;
   z-index: 1000;
-  padding: 20px 0; /* 추후 삭제 */
 }
 .mega h3 {
   font-size: 25px;
@@ -262,10 +262,10 @@ main.main-content {
 /* 메가에 .on붙으면 메가 상태바꿔 (자바스크립트로 갈게) */
 
 /* 추후 주석처리 해제 */
-/* .dep1.on .mega{
+.dep1.on .mega{
   height: auto;
   padding: 20px 0;
-} */
+}
 
 .row {
   display: flex;
@@ -314,46 +314,56 @@ main.main-content {
 /* 메인 컨텐츠 */
 /* tab */
 .tab-wrapper {
-  width: 1004px;
-  position: absolute;
-  height: 500px;
+  max-width: 1004px;
+  width:100%;
+  position: relative;
   z-index: 99999;
   left: 50%;
   top: 650px;
+  background-color: white;
   transform: translate(-50%, 10%);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 2px 5px 6px 1px #01010130;
 }
 
 .tab-menu {
   display: flex;
   gap: 10px;
+  padding-top: 10px;
 }
 
 .tab-menu a {
   display: block;
   color: #999;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 1px 20px;
 }
+
 
 .trip-type-item {
   font-size: 12px;
   font-weight: 700;
   padding: 2px 0;
+    border: 1px solid #fff;
   cursor: pointer;
   color: #888;
   transition:
     color 0.3s ease,
-    border-bottom 0.3s ease;
 }
+
 
 .trip-type-item.active {
   color: #002554;
-  border-bottom: 2px solid #ffb81c;
+  border: 1px solid #88888855;
+  border-radius: 10px;
 }
+
+/* ======================== */
 
 .tab-content {
   position: relative;
-  min-height: 300px;
+  min-height: 200px;
 }
 
 .tab-content > div {
@@ -446,15 +456,6 @@ main.main-content {
   color: #333;
 }
 
-.tab-wrapper {
-  border-radius: 20px;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12);
-  position: relative;
-  height: 250px;
-}
-
 .route {
   position: relative;
   width: 1004px;
@@ -520,12 +521,13 @@ main.main-content {
   width: 20px;
   height: 20px;
   display: block;
+  justify-content: space-between;
 }
 
 .booking-options {
+  width: 100%;
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .option-group {
@@ -905,7 +907,7 @@ main.main-content {
 .footer {
   background: #f2f2f2;
   padding: 80px 0;
-  margin-top: 120px;
+  display: block;
 }
 
 .footer-container {
@@ -1250,7 +1252,8 @@ main.main-content {
 
   /* 메인 컨텐츠 */
   main.main-content {
-    padding-bottom: 80px;
+   position: relative;
+    top: -100px;
   }
 
   /* 배너 */
