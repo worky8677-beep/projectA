@@ -47,7 +47,6 @@ img {
 .container {
   max-width: 1004px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 /* 헤더 */
@@ -196,9 +195,9 @@ img {
 }
 
 /* 메인 네비게이션 */
-main.main-content{
+main.main-content {
   position: relative;
-  top:-100px;
+  top: -100px;
 }
 .main-nav {
   background: #ffffff;
@@ -243,10 +242,13 @@ main.main-content{
   transition: height 0.3s ease;
   z-index: 1000;
 }
-.mega h3 {
-  font-size: 25px;
+.mega h2 {
+  color: #444950;
+  font-size: 1.1rem;
   font-weight: bold;
   letter-spacing: -1.5px;
+  text-align: left;
+  margin-bottom: 10px;
 }
 .menu {
   display: flex;
@@ -258,25 +260,26 @@ main.main-content{
 .dep1 {
   width: calc(100% / 6);
 }
+.dep2 {
+  text-align: left;
+}
 
-/* 메가에 .on붙으면 메가 상태바꿔 (자바스크립트로 갈게) */
-
-/* 추후 주석처리 해제 */
-.dep1.on .mega{
-  height: auto;
-  padding: 20px 0;
+.dep2 a {
+  font-size: 0.9rem;
 }
 
 .row {
   display: flex;
-  max-width: 80vw;
-  margin: auto;
+  width: 65%;
+  max-width: 748px;
+  margin-left: 36%;
   gap: 10%;
   text-align: center;
-  padding: 20px 0 40px;
+  padding-bottom: 40px;
   justify-content: space-between;
   white-space: nowrap; /* 이건 글자 줄바꿈 안함 */
   opacity: 1;
+  border-top: 1px solid #33333315;
 }
 
 /* =====================================복붙끝====== */
@@ -284,7 +287,7 @@ main.main-content{
   font-size: 16px;
   font-weight: 700;
   padding: 26px 10px;
-  color: #1a1a1a;
+  color: #444950;
   transition: color 0.2s;
   overflow: hidden;
   position: relative;
@@ -315,12 +318,12 @@ main.main-content{
 /* tab */
 .tab-wrapper {
   max-width: 1004px;
-  width:100%;
+  width: 100%;
   position: relative;
-  z-index: 99999;
+  z-index: 999;
   left: 50%;
   top: 650px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   transform: translate(-50%, 10%);
   padding: 10px;
   border-radius: 20px;
@@ -340,18 +343,15 @@ main.main-content{
   padding: 1px 20px;
 }
 
-
 .trip-type-item {
   font-size: 12px;
   font-weight: 700;
   padding: 2px 0;
-    border: 1px solid #fff;
+  border: 1px solid #fff;
   cursor: pointer;
   color: #888;
-  transition:
-    color 0.3s ease,
+  transition: color 0.3s ease;
 }
-
 
 .trip-type-item.active {
   color: #002554;
@@ -375,7 +375,7 @@ main.main-content{
 }
 
 .tab-content > div.active {
-  display: block;
+  display: flex;
 }
 
 /* 메인 배너 */
@@ -388,7 +388,9 @@ main.main-content{
 .banner-img {
   width: 100%;
   height: 100%;
+  min-height: 700px;
   object-fit: cover;
+  z-index: -9999;
 }
 
 .banner-text {
@@ -473,7 +475,7 @@ main.main-content{
 .route-selection > .direction {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .route-field {
@@ -489,10 +491,6 @@ main.main-content{
   border-bottom: 1px solid #ddd;
   padding: 8px 0;
   color: #aaa;
-}
-
-.route-input.right {
-  text-align: right;
 }
 
 .route-swap {
@@ -573,19 +571,6 @@ main.main-content{
   color: #333;
 }
 
-.discount-field {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 15px 23px;
-  position: relative;
-}
-
-.discount-btn {
-  color: #002554;
-  font-size: 14px;
-  font-weight: 400;
-}
-
 .search-btn {
   background: #aaa;
   color: #ffffff;
@@ -604,6 +589,7 @@ main.main-content{
   margin-top: 70px;
   border-radius: 50px;
   box-shadow: #4c4c4c5e 2px 2px 10px;
+  width: 100%;
 }
 
 .quick-grid {
@@ -621,13 +607,11 @@ main.main-content{
   gap: 10px;
   padding: 2px;
   text-align: center;
+  width: calc(100% / 9);
 }
 
 .quick-item img {
-  width: 100px;
-  height: 100px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .quick-item span {
@@ -774,7 +758,7 @@ main.main-content{
 .price-slider {
   position: relative;
   padding: 5px;
-  width: 1004;
+  width: 1004px;
 }
 .price-list {
   overflow: hidden;
@@ -835,52 +819,51 @@ main.main-content{
   line-height: 21px;
 }
 
-/* J 멤버스 혜택 */
+/* ==================================== */
+/* ===========에어로케이스토리=========== */
+/* =================================== */
+
+.news-section {
+  width: 100%;
+}
+
 .members-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: 10px;
 }
 
 .member-card {
-  height: 235px;
-  border-radius: 10px;
+  display: block;
+  width: calc(100% /4);
   position: relative;
   overflow: hidden;
-  display: flex;
   align-items: flex-start;
 }
+.member-card-frame{
+  height: 300px;
+  overflow: hidden;
+  border-radius: 0 20px 0 20px;
+}
 
-.member-card img {
+.member-card-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-.member-card span {
-  position: absolute;
-  top: 18px;
-  left: 30px;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 700;
+.member-card-frame:hover img{
+transform: scale(1.1);
+transition: 1s;
 }
 
-.member-card.red {
-  background: #fec7c7;
+
+.member-card h1 {
+  color: #121212;
+  font-size: 1.5rem;
+}
+.member-card p {
+
 }
 
-.member-card.blue {
-  background: #c7eafe;
-}
-
-.member-card.yellow {
-  background: #ffe89a;
-}
-
-.member-card.green {
-  background: #c7feda;
-}
 
 /* 공지사항 */
 .notice-list {
@@ -1252,7 +1235,7 @@ main.main-content{
 
   /* 메인 컨텐츠 */
   main.main-content {
-   position: relative;
+    position: relative;
     top: -100px;
   }
 
@@ -1618,61 +1601,6 @@ main.main-content{
     content: "*";
     color: #002554;
     margin-right: 3px;
-  }
-
-  /* 편의 서비스 섹션 */
-  .news-section {
-    padding: 60px 0;
-  }
-
-  .service-tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-
-  .service-tab {
-    padding: 0 18px;
-    height: 30px;
-    background: #f2f2f2;
-    border-radius: 15px;
-    font-size: 13px;
-    color: #888;
-    line-height: 30px;
-    white-space: nowrap;
-  }
-
-  .service-tab.active {
-    background: #002554;
-    color: #ffffff;
-  }
-
-  .service-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .service-card {
-    background: #f8f8f8;
-    border-radius: 10px;
-    padding: 16px;
-    height: 100px;
-  }
-
-  .service-card-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #333;
-    line-height: 21px;
-    letter-spacing: -0.2px;
-    margin-bottom: 1px;
-  }
-
-  .service-card-desc {
-    font-size: 14px;
-    color: #333;
-    line-height: 21px;
   }
 
   /* 인기 노선 섹션 */
@@ -2054,7 +1982,7 @@ main.main-content{
 
 /* ============================= */
 /* ==========팝업========= */
-/* ============================= */
+/* =============================  */
 .popup {
   display: flex;
   top: 200px;
@@ -2090,4 +2018,30 @@ main.main-content{
   .mega {
     display: none;
   }
+}
+
+/* ============스와이퍼============ */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-pagination {
+  z-index: 9999;
+  top: 0;
 }

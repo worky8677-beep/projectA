@@ -29,7 +29,7 @@ btn.onclick = () => {
 document.querySelector(".popup-dim").style.display = "none";
 
 /* ================================================ */
-/* ==nav========================================= */
+/* ==네비========================================= */
 /* ================================================ */
 
 const nav = document.querySelector(".nav");
@@ -40,7 +40,7 @@ dep1.forEach((el) => {
   el.addEventListener(
     "mouseenter",
     function () {
-    const h =row.offsetHeight;
+    const h =el.querySelector(".row").offsetHeight;
       el.classList.add("on");
       // mega.style.height = "auto";
       mega.style.height = `${h}px`;
@@ -52,3 +52,22 @@ dep1.forEach((el) => {
     mega.style.height = `0px`;
   });
 });
+
+/* ============상단 배너 스와이퍼============ */
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 0,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+/* ======================== */

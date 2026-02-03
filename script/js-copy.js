@@ -28,25 +28,27 @@ btn.onclick = () => {
 };
 document.querySelector(".popup-dim").style.display = "none";
 
-// /* ================================================ */
-// /* ==nav========================================= */
-// /* ================================================ */
+/* ================================================ */
+/* ==nav========================================= */
+/* ================================================ */
 
-// const nav = document.querySelector(".nav");
-// const dep1 = document.querySelectorAll(".dep1");
+const nav = document.querySelector(".nav");
+const dep1 = document.querySelectorAll(".dep1");
 
-// dep1.forEach((el) => {
-//   const mega = el.querySelector(".mega");
-//   el.addEventListener(
-//     "mouseenter",
-//     function () {
-//       //el.classList.add("on");
-//       mega.style.height = "auto";
-//     },
-//     false,
-//   );
-//   el.addEventListener("mouseleave", function () {
-//     //el.classList.remove("on");
-//     mega.style.height = `0px`;
-//   });
-// });
+dep1.forEach((el) => {
+  const mega = el.querySelector(".mega");
+  el.addEventListener(
+    "mouseenter",
+    function () {
+    const h =el.querySelector(".row").offsetHeight;
+      el.classList.add("on");
+      // mega.style.height = "auto";
+      mega.style.height = `${h}px`;
+    },
+    false,
+  );
+  el.addEventListener("mouseleave", function () {
+    el.classList.remove("on");
+    mega.style.height = `0px`;
+  });
+});
