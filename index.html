@@ -14,11 +14,15 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>제주항공 - 원태림</title>
+    <title>항공사 리디자인 - 원태림</title>
 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
   </head>
 
   <body>
@@ -128,7 +132,7 @@
                     <div class="col">
                       <!-- h2+ul.dep2>li>a -->
                       <h2 class="dep2"><a href="#"> 비회원예약조회</a></h2>
-                      <!-.dep2 -->
+                      <!--.dep2 -->
                     </div>
                     <!-- //.col -->
                   </div>
@@ -297,10 +301,8 @@
                     <div class="route-field">
                       <input type="text" placeholder="도착지" class="route-input right" />
                     </div>
-
-                    <div class="date-field">
-                      <img src="images/icon/date.png" alt="날짜" class="date-icon" />
-                      <span><input type="date" /></span>
+                    <div class="date-field d1">
+                      <input id="date1" placeholder="날짜 선택" />
                     </div>
 
                     <div class="passenger-field">
@@ -341,7 +343,7 @@
             <div class="booking-form">
               <!-- 경로 선택  -->
               <div class="route">
-                <div class="route-selection" id="round-trip">
+                <div class="route-selection">
                   <div class="direction">
                     <div class="route-field">
                       <input type="text" placeholder="출발지" class="route-input" />
@@ -352,9 +354,8 @@
                     <div class="route-field">
                       <input type="text" placeholder="도착지" class="route-input right" />
                     </div>
-                    <div class="date-field">
-                      <img src="images/icon/date.png" alt="날짜" class="date-icon" />
-                      <span><input type="date" /></span>
+                    <div class="date-field d2">
+                      <input id="date2" placeholder="날짜 선택" />
                     </div>
                     <div class="passenger-field">
                       <img src="images/icon/people.png" alt="승객" class="passenger-icon" />
@@ -394,7 +395,7 @@
             <div class="booking-form">
               <!-- 경로 선택  -->
               <div class="route">
-                <div class="route-selection" id="round-trip">
+                <div class="route-selection">
                   <div class="direction">
                     <div class="route-field">
                       <input type="text" placeholder="출발지" class="route-input" />
@@ -406,8 +407,7 @@
                       <input type="text" placeholder="도착지" class="route-input right" />
                     </div>
                     <div class="date-field">
-                      <img src="images/icon/date.png" alt="날짜" class="date-icon" />
-                      <span><input type="date" /></span>
+                      <input id="date3" placeholder="날짜 선택" />
                     </div>
                     <div class="passenger-field">
                       <img src="images/icon/people.png" alt="승객" class="passenger-icon" />
@@ -452,25 +452,37 @@
             <!-- Slides -->
             <div class="swiper-slide">
               <img src="images/city/japan.jpeg" alt="메인 배너" class="banner-img" />
+              <div class="banner-text">
+                <p>지금 딱 떠나기 좋은</p>
+                <h2>가고시마 벚꽃여행</h2>
+              </div>
             </div>
 
             <div class="swiper-slide">
               <img src="images/city/sebu.jpeg" alt="메인 배너" class="banner-img" />
+              <div class="banner-text">
+                <p>다양한 액티비티천국</p>
+                <h2>청주-세부 단독운항</h2>
+              </div>
             </div>
 
             <div class="swiper-slide">
               <img src="images/city/Singapore.jpeg" alt="메인 배너" class="banner-img" />
+              <div class="banner-text">
+                <p>미리 준비하는 여름휴가</p>
+                <h2>싱가포르 노선 50%할인</h2>
+              </div>
             </div>
           </div>
           <div class="swiper-pagination">
-            <button class="banner-btn-prev">
+            <button class="swiper-button-prev">
               <img src="images/icon/left.png" alt="이전" />
             </button>
             <span class="banner-indicator"> <strong>2</strong> / <span>4</span> </span>
-            <button class="banner-btn-next">
+            <button class="swiper-button-next">
               <img src="images/icon/right.png" alt="다음" />
             </button>
-            <button class="banner-btn-pause">p-type <img src="images/icon/pause.png" alt="정지" /></button>
+            <button class="banner-btn-pause"><img src="images/icon/pause.png" alt="정지" /></button>
           </div>
         </div>
         <!--  -->
@@ -509,7 +521,7 @@
             </a>
           </div>
         </section>
-         <!-- 에어로케이 스토리 -->
+        <!-- 에어로케이 스토리 -->
         <section class="news-section">
           <div class="section-header">
             <div class="section-text">
@@ -522,25 +534,28 @@
             <a href="#" class="member-card">
               <div class="member-card-frame"><img src="images/ramen.png" alt="라멘" /></div>
               <h1>라멘 맛집 20선</h1>
-              <p>에어로케이 시티에디터 픽<br>라멘 맛집 지도!</p>
+              <p>에어로케이 시티에디터 픽<br />라멘 맛집 지도!</p>
             </a>
             <a href="#" class="member-card">
               <div class="member-card-frame"><img src="images/fish.jpeg" alt="세부" /></div>
-             <h1>세부 스노클링</h1>
-              <p>세부 스노클링 포인트에서 만나는<br> 다채로운 물고기들</p>
-
+              <h1>세부 스노클링</h1>
+              <p>
+                세부 스노클링 포인트에서 만나는<br />
+                다채로운 물고기들
+              </p>
             </a>
             <a href="#" class="member-card">
-              <div class="member-card-frame"><img src="images/mongolsky.jpeg"  alt="몽골" /></div>
+              <div class="member-card-frame"><img src="images/mongolsky.jpeg" alt="몽골" /></div>
               <h1>몽골 낭만원정대 모집</h1>
-              <p>쏟아지는 밤하늘 아래로 떠날<br>
+              <p>
+                쏟아지는 밤하늘 아래로 떠날<br />
                 낭만원정대 모집!
               </p>
             </a>
             <a href="#" class="member-card">
-              <div class="member-card-frame"><img src="images/fruit.jpeg"" alt="팔리핀" /></div>
+              <div class="member-card-frame"><img src="images/fruit.jpeg" alt="팔리핀" /></div>
               <h1>필리핀의 열대과일</h1>
-              <p>많고 많은 열대과일!<br>에어로케이가 추천해드려요</p>
+              <p>많고 많은 열대과일!<br />에어로케이가 추천해드려요</p>
             </a>
           </div>
         </section>
@@ -554,61 +569,76 @@
             </div>
           </div>
           <div class="price-slider">
-            <div class="price-list">
-              <div class="price-track">
-                <div class="price-card">
-                  <img src="images/city/jeju.jpeg" alt="청주-제주" />
-                  <h3>청주-제주</h3>
-                  <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
-                  <p class="date">2026.01.20 ~ 2026.02.27</p>
-                </div>
-                <div class="price-card">
-                  <img src="images/city/sebu.jpeg" alt="청주-세부" />
-                  <h3>인천-세부</h3>
-                  <p class="price">128,500<span>원</span><span class="tilde">~</span></p>
-                  <p class="date">2026.01.20 ~ 2026.02.15</p>
-                </div>
-                <div class="price-card">
-                  <img src="images/city/okinawa2.jpeg" alt="청주-오키나와" />
-                  <h3>청주-오키나와</h3>
-                  <p class="price">240,400<span>원</span><span class="tilde">~</span></p>
-                  <p class="date">2026.01.20 ~ 2026.02.21</p>
-                </div>
-                <div class="price-card">
-                  <img src="images/city/obihiro.jpeg" alt="인천-오비히로" />
-                  <h3>인천-오비히로</h3>
-                  <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
-                  <p class="date">2026.02.15 ~ 2026.03.17</p>
-                </div>
-                <div class="price-card">
-                  <img src="images/city/ibaraki.jpeg" alt="청주-이바라키" />
-                  <h3>청주-이바라키</h3>
-                  <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
-                  <p class="date">2026.01.20 ~ 2026.02.28</p>
-                </div>
-                <div class="price-card">
-                  <img src="images/city/Hualien.jpeg" alt="인천-화롄" />
-                  <h3>인천-화롄</h3>
-                  <p class="price">78,500<span>원</span><span class="tilde">~</span></p>
-                  <p class="date">2026.02.15 ~ 2026.03.15</p>
-                </div>
-                <div class="price-card">
-                  <img src="images/city/Mongolia.jpeg" alt="청주-울란바토르" />
-                  <h3>청주-울란바토르</h3>
-                  <p class="price">146,500<span>원</span><span class="tilde">~</span></p>
-                  <p class="date">2026.02.15 ~ 2026.03.15</p>
-                </div>
-              </div>
-            </div>
             <button class="slider-btn slider-prev">
               <img src="images/icon/arrow-left.png" alt="이전" />
             </button>
             <button class="slider-btn slider-next">
               <img src="images/icon/arrow-right.png" alt="다음" />
             </button>
+
+            <div class="price-list">
+              <div class="price-track swiper-wrapper">
+                <div class="price-card swiper-slide">
+                  <img src="images/city/jeju.jpeg" alt="청주-제주" />
+                  <div class="price-text">
+                    <h3>청주-제주</h3>
+                    <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+                    <p class="date">2026.01.20 ~ 2026.02.27</p>
+                  </div>
+                </div>
+                <div class="price-card swiper-slide">
+                  <img src="images/city/sebu.jpeg" alt="청주-세부" />
+                  <div class="price-text">
+                    <h3>인천-세부</h3>
+                    <p class="price">128,500<span>원</span><span class="tilde">~</span></p>
+                    <p class="date">2026.01.20 ~ 2026.02.15</p>
+                  </div>
+                </div>
+                <div class="price-card swiper-slide">
+                  <img src="images/city/okinawa2.jpeg" alt="청주-오키나와" />
+                  <div class="price-text">
+                    <h3>청주-오키나와</h3>
+                    <p class="price">240,400<span>원</span><span class="tilde">~</span></p>
+                    <p class="date">2026.01.20 ~ 2026.02.21</p>
+                  </div>
+                </div>
+                <div class="price-card swiper-slide">
+                  <img src="images/city/obihiro.jpeg" alt="인천-오비히로" />
+                  <div class="price-text">
+                    <h3>인천-오비히로</h3>
+                    <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+                    <p class="date">2026.02.15 ~ 2026.03.17</p>
+                  </div>
+                </div>
+                <div class="price-card swiper-slide">
+                  <img src="images/city/ibaraki.jpeg" alt="청주-이바라키" />
+                  <div class="price-text">
+                    <h3>청주-이바라키</h3>
+                    <p class="price">19,900<span>원</span><span class="tilde">~</span></p>
+                    <p class="date">2026.01.20 ~ 2026.02.28</p>
+                  </div>
+                </div>
+                <div class="price-card swiper-slide">
+                  <img src="images/city/Hualien.jpeg" alt="인천-화롄" />
+                  <div class="price-text">
+                    <h3>인천-화롄</h3>
+                    <p class="price">78,500<span>원</span><span class="tilde">~</span></p>
+                    <p class="date">2026.02.15 ~ 2026.03.15</p>
+                  </div>
+                </div>
+                <div class="price-card swiper-slide">
+                  <img src="images/city/Mongolia.jpeg" alt="청주-울란바토르" />
+                  <div class="price-text">
+                    <h3>청주-울란바토르</h3>
+                    <p class="price">146,500<span>원</span><span class="tilde">~</span></p>
+                    <p class="date">2026.02.15 ~ 2026.03.15</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-                <!-- 여행준비 -->
+        <!-- 여행준비 -->
         <section class="benefits-section">
           <div class="section-header">
             <h2>여행준비, 에어로케이와 함께.</h2>
@@ -616,8 +646,8 @@
           </div>
           <div class="benefits-slider">
             <div class="benefits-inner">
-              <div class="benefits-track">
-                <div class="benefit-card">
+              <div class="benefits-track swiper-wrapper">
+                <div class="benefit-card swiper-slide">
                   <img src="images/phone.jpeg" alt="e-sim/Usim" />
                   <div class="benefit-text">
                     <p>e-sim/Usim</p>
@@ -625,45 +655,32 @@
                     <p>어디서나 간편한 여행 필수품</p>
                   </div>
                 </div>
-                <div class="benefit-card">
-                  <img src="images/hotel.jpeg" alt="클룩 Klook" />
+                <div class="benefit-card swiper-slide">
+                  <img src="images/phone.jpeg" alt="e-sim/Usim" />
                   <div class="benefit-text">
-                    <p>클룩 Klook</p>
-                    <p>클룩 호텔 2박시, 최대 5만원 할인!</p>
+                    <p>e-sim/Usim</p>
+                    <p>최대 10% 할인</p>
+                    <p>어디서나 간편한 여행 필수품</p>
                   </div>
                 </div>
-                <div class="benefit-card">
-                  <img src="images/car.jpeg" alt="롯데렌터카" />
+                <div class="benefit-card swiper-slide">
+                  <img src="images/phone.jpeg" alt="e-sim/Usim" />
                   <div class="benefit-text">
-                    <p>롯데렌터카</p>
-                    <p>
-                      대한민국 No.1 롯데렌터카<br />
-                      최대 89% 할인!
-                    </p>
+                    <p>e-sim/Usim</p>
+                    <p>최대 10% 할인</p>
+                    <p>어디서나 간편한 여행 필수품</p>
                   </div>
                 </div>
-                <div class="benefit-card">
-                  <img src="images/paragliding.jpeg" alt="kkday" />
+                <div class="benefit-card swiper-slide">
+                  <img src="images/phone.jpeg" alt="e-sim/Usim" />
                   <div class="benefit-text">
-                    <p>kkday</p>
-                    <p>
-                      해외 티켓/투어/액티비티<br />
-                      최대 5% 할인!
-                    </p>
+                    <p>e-sim/Usim</p>
+                    <p>최대 10% 할인</p>
+                    <p>어디서나 간편한 여행 필수품</p>
                   </div>
                 </div>
+                <div class="swiper-pagination"></div>
               </div>
-            </div>
-            <button class="slider-btn slider-prev">
-              <img src="images/icon/arrow-left.png" alt="이전" />
-            </button>
-            <button class="slider-btn slider-next">
-              <img src="images/icon/arrow-right.png" alt="다음" />
-            </button>
-            <div class="slider-dots">
-              <span class="dot"></span>
-              <span class="dot active"></span>
-              <span class="dot"></span>
             </div>
           </div>
         </section>
@@ -693,7 +710,7 @@
       <div class="footer-container">
         <div class="footer-links">
           <div class="footer-col">
-            <h3>제주항공</h3>
+            <h3>에어로케이</h3>
             <ul>
               <li><a href="#">회사소개</a></li>
               <li><a href="#">투자정보</a></li>
@@ -748,43 +765,40 @@
         </div>
         <div class="footer-info">
           <div class="footer-company">
-            <h3>(주)제주항공</h3>
-            <p>대표이사 : 김이배 | 사업자등록번호 : 616-81-50527 | 통신판매업신고 : 제주 2006-125호 | 호스팅 사업자 : AWS</p>
-            <p>주소 : 제주특별자치도 제주시 신대로 64 (연동, 건설공제회관 3층) | 고객센터 : 1599-1500 (09:00 ~ 19:00)</p>
+            <h3>(주)에어로케이</h3>
+            <p>대표이사 : 김첨지 | 사업자등록번호 : 000-00-0000 | 통신판매업신고 : 인천 0000-000호 | 호스팅 사업자 : AAA</p>
+            <p>주소 : 경기도 인천광역시 00 (안서동 00 3층) | 고객센터 : 1599-0000 (09:00 ~ 19:00)</p>
             <p>고객 문의 : | 제휴 문의 :</p>
-            <p class="copyright">Copyright ⓒ Jeju Air. All Rights Reserved.</p>
+            <p class="copyright">Copyright ⓒ won taerim. All Rights Reserved.</p>
           </div>
           <div class="footer-app">
-            <div class="app-text">
-              <p>앱을 다운로드하고</p>
-              <p>앱전용 혜택을</p>
-              <p>받아보세요!</p>
+            <div class="footer-social">
+              <a href="#"><img src="images/icon/facebook.png" alt="페이스북" /></a>
+              <a href="#"><img src="images/icon/instagram.png" alt="인스타그램" /></a>
             </div>
-            <div class="app-qr">
-              <img src="https://placehold.co/80x80/ffffff/333333?text=QR" alt="QR 코드" />
+            <div class="footer-app-row">
+              <div class="app-text">
+                <p>앱을 다운로드하고</p>
+                <p>앱전용 혜택을</p>
+                <p>받아보세요!</p>
+              </div>
+              <div class="app-qr">
+                <img src="https://placehold.co/80x80/ffffff/333333?text=QR" alt="QR 코드" />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="footer-social">
-          <a href="#"><img src="https://placehold.co/24x24/3b5998/ffffff?text=F" alt="페이스북" /></a>
-          <a href="#"><img src="https://placehold.co/24x24/e4405f/ffffff?text=I" alt="인스타그램" /></a>
-          <a href="#"><img src="https://placehold.co/24x24/ff0000/ffffff?text=Y" alt="유튜브" /></a>
-          <a href="#"><img src="https://placehold.co/24x24/ffcd00/333333?text=K" alt="카카오톡" /></a>
         </div>
       </div>
     </footer>
     <!-- 플로팅 버튼 -->
     <div class="floating-buttons">
-      <div class="floating-items">
+      <!-- <div class="floating-items">
         <button class="floating-btn blue">
           <img src="https://placehold.co/72x72/0066cc/ffffff?text=1" alt="버튼1" />
         </button>
-        <button class="floating-btn orange">
-          <img src="https://placehold.co/72x72/ff5000/ffffff?text=2" alt="버튼2" />
-        </button>
-      </div>
+      </div> -->
       <button class="floating-toggle">
-        <span class="icon-plus">+</span>
+        <img src="images/icon/talk.png" alt=""/>
       </button>
     </div>
     <!-- 하단 네비게이션 (모바일 전용) -->
