@@ -1,37 +1,3 @@
-$(function () {
-  $("#date2").datepicker({
-    buttonImage: "images/icon/date.png",
-    dateFormat: "yy-mm-dd",
-     showOn: "button",
-     buttonImageOnly: true,
-      buttonText: "Select date"
-  });
-    $(".date-field.d2").click(function () {
-    $("#date2").datepicker("show");
-  });
-
-  $("#date1").datepicker({
-    buttonImage: "images/icon/date.png",
-    dateFormat: "yy-mm-dd",
-     showOn: "button",
-     buttonImageOnly: true,
-      buttonText: "Select date"
-  });
-    $(".date-field.d1").click(function () {
-    $("#date1").datepicker("show");
-  });
-
-  $("#date3").datepicker({
-    buttonImage: "images/icon/date.png",
-    dateFormat: "yy-mm-dd",
-     showOn: "button",
-     buttonImageOnly: true,
-      buttonText: "Select date"
-  });
-    $(".date-field.d3").click(function () {
-    $("#date3").datepicker("show");
-  });
-});
 
 
 /* ==============탭============ */

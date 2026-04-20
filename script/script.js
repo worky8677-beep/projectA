@@ -488,3 +488,17 @@ for (let i = 0; i < 3; i++) {
     return false
   });
 }
+
+/* 인원수 업다운 버튼 */
+document.querySelectorAll('.passenger-field').forEach(function(field) {
+  var countEl = field.querySelector('.pax-count');
+  var count = 1;
+
+  field.querySelector('.pax-up').addEventListener('click', function() {
+    if (count < 10) { count++; countEl.textContent = count; }
+  });
+
+  field.querySelector('.pax-down').addEventListener('click', function() {
+    if (count > 1) { count--; countEl.textContent = count; }
+  });
+});

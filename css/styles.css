@@ -270,14 +270,15 @@ main.main-content {
 
 .row {
   display: flex;
-  width: 65%;
-  max-width: 748px;
-  margin-left: 20%;
+  max-width: 1004px; 
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 270px; 
   gap: 10%;
   text-align: center;
   padding-bottom: 40px;
-  justify-content: space-between;
-  white-space: nowrap; /* 이건 글자 줄바꿈 안함 */
+  justify-content: flex-start;
+  white-space: nowrap; 
   opacity: 1;
   border-top: 1px solid #33333315;
 }
@@ -492,18 +493,15 @@ main.main-content {
   display: flex;
   align-items: center;
 }
-#date1, #date2 #date3 {
-  order:2;
-}
-.hasDatepicker{
+.date-field input {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
   width: 140px;
-  border: 0px;
-}
-
-.ui-datepicker-trigger {
-  display: flex;
-  width: 20px;
-  order:1;
 }
 .route-input {
   width: 250px;
@@ -528,13 +526,38 @@ main.main-content {
 .passenger-field {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   border-bottom: 1px solid #ddd;
   padding: 8px 0;
   font-size: 14px;
   font-weight: 700;
   color: #333;
   width: 180px;
+}
+.pax-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+}
+.pax-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.pax-up,
+.pax-down {
+  font-size: 8px;
+  color: #888;
+  line-height: 1;
+  padding: 1px 3px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.pax-up:hover,
+.pax-down:hover {
+  color: #002554;
 }
 .date-field :hover {
 }
@@ -1946,4 +1969,267 @@ banner >.swiper-slide img {
 .swiper-pagination {
   z-index: 9999;
   top: 0;
+}
+
+/* ===== 날짜 선택 팝업 ===== */
+.cal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+}
+.cal-overlay.open {
+  display: flex;
+}
+.cal-popup {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px 24px;
+  width: 760px;
+  max-width: 95vw;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
+}
+.cal-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 24px;
+}
+.cal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #002554;
+}
+.cal-subtitle {
+  font-size: 12px;
+  color: #aaa;
+  margin-left: 10px;
+}
+.cal-close {
+  margin-left: auto;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.cal-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.cal-months {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+}
+.cal-month {
+  flex: 1;
+}
+.cal-month-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #002554;
+  margin-bottom: 16px;
+}
+.cal-day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 6px;
+}
+.cal-day-name {
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+  padding: 4px 0;
+}
+.cal-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.cal-date {
+  position: relative;
+  text-align: center;
+  padding: 5px 0;
+  cursor: pointer;
+}
+.cal-date-num {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+.cal-date.past .cal-date-num {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.cal-date.empty {
+  cursor: default;
+}
+/* 범위 배경 띠 */
+.cal-date::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  height: 36px;
+  background: transparent;
+  z-index: 0;
+}
+.cal-date.in-range::before {
+  background: #dce6f5;
+}
+.cal-date.range-start::before {
+  background: linear-gradient(to right, transparent 50%, #dce6f5 50%);
+}
+.cal-date.range-end::before {
+  background: linear-gradient(to left, transparent 50%, #dce6f5 50%);
+}
+/* 선택된 날짜 원 */
+.cal-date.range-start .cal-date-num,
+.cal-date.range-end .cal-date-num,
+.cal-date.selected-only .cal-date-num {
+  background: #002554;
+  color: #fff;
+}
+/* 호버 */
+.cal-date:not(.past):not(.empty):not(.in-range):not(.range-start):not(.range-end):not(.selected-only):hover .cal-date-num {
+  background: #f0f4f9;
+}
+.cal-nav-btn {
+  font-size: 28px;
+  color: #002554;
+  cursor: pointer;
+  padding: 0 4px;
+  background: none;
+  border: none;
+  align-self: center;
+  line-height: 1;
+}
+.cal-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+.cal-confirm {
+  background: #002554;
+  color: #fff;
+  border: none;
+  padding: 14px 80px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cal-confirm:hover {
+  background: #003580;
+}
+
+/* ===== 출발지/도착지 선택 팝업 ===== */
+.route-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+}
+.route-overlay.open {
+  display: flex;
+}
+.route-popup {
+  background: #fff;
+  border-radius: 16px;
+  width: 560px;
+  max-width: 95vw;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+.route-popup-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #eee;
+}
+.route-popup-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #002554;
+}
+.route-popup-close {
+  margin-left: auto;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+.route-popup-body {
+  display: flex;
+  min-height: 300px;
+}
+.route-categories {
+  width: 160px;
+  border-right: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+.route-cat-item {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.route-cat-item:hover {
+  background: #f5f7fb;
+  color: #002554;
+}
+.route-cat-item.active {
+  background: #f0f4fb;
+  color: #002554;
+  border-left: 3px solid #002554;
+}
+.route-airports {
+  flex: 1;
+  padding: 8px 0;
+}
+.route-airport-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.route-airport-item:hover {
+  background: #f5f7fb;
+  color: #002554;
+}
+.route-airport-code {
+  font-size: 12px;
+  color: #aaa;
+  font-weight: 500;
+  margin-left: 8px;
 }

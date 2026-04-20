@@ -302,12 +302,17 @@
                       <input type="text" placeholder="도착지" class="route-input right" />
                     </div>
                     <div class="date-field d1">
-                      <input id="date1" placeholder="날짜 선택" />
+                      <img src="images/icon/date.png" alt="날짜" class="date-icon" />
+                      <input id="date1" placeholder="날짜 선택" readonly />
                     </div>
 
                     <div class="passenger-field">
                       <img src="images/icon/people.png" alt="승객" class="passenger-icon" />
-                      <span><input type="number" min="1" max="10" step="1" placeholder="인원 수" /></span>
+                      <span class="pax-label"><span class="pax-count">1</span></span>
+                      <div class="pax-controls">
+                        <button class="pax-up">&#9650;</button>
+                        <button class="pax-down">&#9660;</button>
+                      </div>
                     </div>
                   </div>
                   <div class="booking-options">
@@ -355,11 +360,16 @@
                       <input type="text" placeholder="도착지" class="route-input right" />
                     </div>
                     <div class="date-field d2">
-                      <input id="date2" placeholder="날짜 선택" />
+                      <img src="images/icon/date.png" alt="날짜" class="date-icon" />
+                      <input id="date2" placeholder="날짜 선택" readonly />
                     </div>
                     <div class="passenger-field">
                       <img src="images/icon/people.png" alt="승객" class="passenger-icon" />
-                      <span><input type="number" min="1" max="10" step="1" placeholder="인원 수" /></span>
+                      <span class="pax-label"><span class="pax-count">1</span></span>
+                      <div class="pax-controls">
+                        <button class="pax-up">&#9650;</button>
+                        <button class="pax-down">&#9660;</button>
+                      </div>
                     </div>
                   </div>
                   <div class="booking-options">
@@ -407,11 +417,16 @@
                       <input type="text" placeholder="도착지" class="route-input right" />
                     </div>
                     <div class="date-field">
-                      <input id="date3" placeholder="날짜 선택" />
+                      <img src="images/icon/date.png" alt="날짜" class="date-icon" />
+                      <input id="date3" placeholder="날짜 선택" readonly />
                     </div>
                     <div class="passenger-field">
                       <img src="images/icon/people.png" alt="승객" class="passenger-icon" />
-                      <span><input type="number" min="1" max="10" step="1" placeholder="인원 수" /></span>
+                      <span class="pax-label"><span class="pax-count">1</span></span>
+                      <div class="pax-controls">
+                        <button class="pax-up">&#9650;</button>
+                        <button class="pax-down">&#9660;</button>
+                      </div>
                     </div>
                   </div>
                   <div class="booking-options">
@@ -642,7 +657,7 @@
         <section class="benefits-section">
           <div class="section-header">
             <h2>여행준비, 에어로케이와 함께.</h2>
-            <a href="#" class="more-link">전체보기</a>
+            <!-- <a href="#" class="more-link">전체보기</a> -->
           </div>
           <div class="benefits-slider">
             <div class="benefits-inner">
@@ -656,19 +671,19 @@
                   </div>
                 </div>
                 <div class="benefit-card swiper-slide">
-                  <img src="images/phone.jpeg" alt="e-sim/Usim" />
+                  <img src="images/hotel.jpeg" alt="e-sim/Usim" />
                   <div class="benefit-text">
-                    <p>e-sim/Usim</p>
-                    <p>최대 10% 할인</p>
-                    <p>어디서나 간편한 여행 필수품</p>
+                    <p>Hotel</p>
+                    <p>에어로케이 탑승객 제휴할인</p>
+                    <p>청주, 세종호텔 제휴</p>
                   </div>
                 </div>
                 <div class="benefit-card swiper-slide">
-                  <img src="images/phone.jpeg" alt="e-sim/Usim" />
+                  <img src="images/car.jpeg" alt="e-sim/Usim" />
                   <div class="benefit-text">
-                    <p>e-sim/Usim</p>
-                    <p>최대 10% 할인</p>
-                    <p>어디서나 간편한 여행 필수품</p>
+                    <p>카모아</p>
+                    <p>국내/해외 렌트카 5천원 쿠폰</p>
+                    <p>먼곳까지 마음대로</p>
                   </div>
                 </div>
                 <div class="benefit-card swiper-slide">
@@ -835,7 +850,45 @@
         <span class="bottom-nav-label">마이페이지</span>
       </a>
     </nav>
+    <!-- 출발지/도착지 선택 팝업 -->
+    <div class="route-overlay" id="routeOverlay">
+      <div class="route-popup">
+        <div class="route-popup-header">
+          <span class="route-popup-title" id="routePopupTitle">출발지 선택</span>
+          <button class="route-popup-close" id="routePopupClose">×</button>
+        </div>
+        <div class="route-popup-body">
+          <div class="route-categories" id="routeCategories"></div>
+          <div class="route-airports" id="routeAirports"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 날짜 선택 팝업 -->
+    <div class="cal-overlay" id="calOverlay">
+      <div class="cal-popup">
+        <div class="cal-header">
+          <span class="cal-title">날짜 선택</span>
+          <span class="cal-subtitle">1인 편도 운임 기준</span>
+          <button class="cal-close" id="calClose">×</button>
+        </div>
+        <div class="cal-body">
+          <button class="cal-nav-btn" id="calPrev">&#8249;</button>
+          <div class="cal-months">
+            <div class="cal-month" id="calMonth1"></div>
+            <div class="cal-month" id="calMonth2"></div>
+          </div>
+          <button class="cal-nav-btn" id="calNext">&#8250;</button>
+        </div>
+        <div class="cal-footer">
+          <button class="cal-confirm" id="calConfirm">확인</button>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="script/js.js"></script>
+    <script src="script/calendar.js"></script>
+    <script src="script/route-selector.js"></script>
   </body>
 </html>
